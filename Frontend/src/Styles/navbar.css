@@ -1,0 +1,91 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  height: 50px;
+  background: #434344;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid white; */
+}
+header > .icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0 20px;
+  /* border: 1px solid white; */
+}
+
+header > .icons > a {
+  text-decoration: none;
+  color: white;
+}
+/* 
+  header > .icons > .showDown:hover ~ .headerDropDown {
+    height: 100%;
+    overflow: visible;
+    transition: 0.5s;
+  } */
+
+header > .icons > a > svg {
+  fill: white;
+}
+.headerDropDown {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  height: 0;
+  overflow: hidden;
+  z-index: 120;
+  transition: 0.5s ease;
+  padding: 0 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.headerDropDown.active {
+  visibility: visible;
+  height: 350px;
+}
+
+.headerDropDown.active > .navList {
+  opacity: 1;
+}
+
+.headerDropDown > .navList {
+  display: flex;
+  width: 40%;
+  opacity: 0;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  transition-delay: 0.2s;
+  transition: 0.5s ease;
+  padding: 10px 20px;
+  /* border: 1px solid red; */
+}
+
+.headerDropDown > .navList > p {
+  font-size: 12px;
+}
+
+.headerDropDown > .navList:first-child > a {
+  font-size: 20px;
+  /* line-height: 0; */
+  text-decoration: none;
+  color: white;
+}
+
+.headerDropDown > .navList > a {
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+/* 
+  .headerDropDown > .navList > span {
+    
+  } */
