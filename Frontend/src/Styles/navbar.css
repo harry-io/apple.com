@@ -1,0 +1,77 @@
+header {
+  position: relative;
+  height: 50px;
+  background: #434344;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid white; */
+}
+header > .icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0 20px;
+  /* border: 1px solid white; */
+}
+
+header > .icons > a {
+  text-decoration: none;
+  color: white;
+}
+/* 
+header > .icons > .showDown:hover ~ .headerDropDown {
+  height: 100%;
+  overflow: visible;
+  transition: 0.5s;
+} */
+
+header > .icons > a > svg {
+  fill: white;
+}
+.headerDropDown {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background-color: #434344;
+  /* background-color: red; */
+  height: 0;
+  overflow: hidden;
+  display: grid;
+  z-index: 120;
+  transition: 0.5s ease;
+  padding: 0 280px;
+  grid-template-columns: repeat(3, 1fr);
+  /* border: 1px solid red; */
+}
+
+.headerDropDown > .navList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  padding: 10px 20px;
+  /* border: 1px solid white; */
+}
+
+.headerDropDown > .navList > p {
+  font-size: 12px;
+}
+
+.headerDropDown > .navList:first-child > a {
+  font-size: 20px;
+  /* line-height: 0; */
+  text-decoration: none;
+  color: white;
+}
+
+.headerDropDown > .navList > a {
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+/* 
+.headerDropDown > .navList > span {
+  
+} */
