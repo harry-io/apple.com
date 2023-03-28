@@ -12,6 +12,7 @@ const Home = () => {
     }, 120);
   }, []);
 
+
   return (
     <>
       <div className="homeMain">
