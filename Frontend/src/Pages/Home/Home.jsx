@@ -4,13 +4,14 @@ import $ from "jquery";
 import "font-awesome/css/font-awesome.min.css";
 
 const Home = () => {
-  var video = document.getElementById("video");
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    let id = setInterval(function () {
-      video.currentTime = window.pageYOffset / 800;
-    }, 120);
+    let id = setTimeout(() => {
+      videoRef.current.pause();
+    }, 4200);
   }, []);
+  console.log(videoRef);
 
   return (
     <>
@@ -22,6 +23,10 @@ const Home = () => {
             <h3>Pro. Beyond.</h3>
           </div>
           <video
+            ref={videoRef}
+            loop
+            autoPlay
+            muted
             id="video"
             src="https://www.apple.com/105/media/us/iphone-14-pro/2023/b094f6e4-dcdb-494f-bd72-45d659126dcd/anim/hero/large_2x.mp4"
           />

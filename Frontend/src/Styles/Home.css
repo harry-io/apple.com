@@ -6,7 +6,7 @@
 }
 .homeMain > .homeImgBx {
   position: relative;
-  height: 550vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   /* align-items: center; */
@@ -20,7 +20,7 @@
   position: sticky;
   top: 0;
   object-fit: cover;
-  height: 15%;
+  height: 100%;
   width: 100%;
   object-position: 0 00px;
   /* height: inherit; */
@@ -40,16 +40,16 @@
 }
 
 .homeMain > .homeImgBx > .text h1 {
-  position: sticky;
-  top: 100px;
+  /* position: sticky; */
+  /* top: 100px; */
   font-size: 50px;
   font-weight: 500;
   line-height: 0;
 }
 
 .homeMain > .homeImgBx > .text h3 {
-  position: sticky;
-  top: 120px;
+  /* position: sticky; */
+  /* top: 120px; */
   font-size: 30px;
   font-weight: 400;
 }
