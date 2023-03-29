@@ -9,6 +9,7 @@
   height: 80vh;
   width: 100%;
   display: flex;
+  background-color: black;
   /* align-items: center; */
   justify-content: center;
   /* border: 1px solid red; */
@@ -21,7 +22,7 @@
   top: 0;
   object-fit: cover;
   height: 100%;
-  width: 100%;
+  width: 80%;
   object-position: 0 00px;
   /* height: inherit; */
 }
@@ -61,6 +62,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  /* padding: 20px 0 0 0; */
 }
 
 .homeMain > .homeItemBx > .itemText {

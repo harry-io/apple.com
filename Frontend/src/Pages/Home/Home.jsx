@@ -5,13 +5,18 @@ import "font-awesome/css/font-awesome.min.css";
 
 const Home = () => {
   const videoRef = useRef(null);
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
     let id = setTimeout(() => {
       videoRef.current.pause();
-    }, 4200);
+      setChange(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(id);
+    };
   }, []);
-  console.log(videoRef);
 
   return (
     <>
@@ -22,14 +27,22 @@ const Home = () => {
             <h1>iPhone 14 Pro</h1>
             <h3>Pro. Beyond.</h3>
           </div>
-          <video
-            ref={videoRef}
-            loop
-            autoPlay
-            muted
-            id="video"
-            src="https://www.apple.com/105/media/us/iphone-14-pro/2023/b094f6e4-dcdb-494f-bd72-45d659126dcd/anim/hero/large_2x.mp4"
-          />
+
+          {change ? (
+            <video
+              src=""
+              poster="https://www.apple.com/v/iphone-14-pro/e/images/meta/iphone-14-pro_overview__3dn6st99cpea_og.png"
+            ></video>
+          ) : (
+            <video
+              ref={videoRef}
+              loop
+              autoPlay
+              muted
+              id="video"
+              src="https://www.apple.com/105/media/us/iphone-14-pro/2023/b094f6e4-dcdb-494f-bd72-45d659126dcd/anim/hero/large_2x.mp4"
+            />
+          )}
         </div>
         {/*  */}
         <div className="homeItemBx">

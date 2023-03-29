@@ -48,7 +48,7 @@ header > .icons > a > svg {
 
 .headerDropDown.active {
   visibility: visible;
-  height: 350px;
+  height: 400px;
 }
 
 .headerDropDown.active > .navList {
@@ -86,7 +86,49 @@ header > .icons > a > svg {
   text-decoration: none;
   color: white;
 }
-/* 
-  .headerDropDown > .navList > span {
-    
-  } */
+/*  */
+.headerDropDown > .cartData {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 10px;
+  align-items: flex-start;
+  /* border: 1px solid #fff; */
+}
+
+.headerDropDown > .cartData > .navBox1 {
+  display: flex;
+  gap: 10px;
+  color: white;
+  flex-direction: column;
+  /* border: 1px solid #fff; */
+}
+.headerDropDown > .cartData > .navBox1 > .navCard {
+  display: flex;
+  color: white;
+  /* border: 1px solid #fff; */
+}
+.headerDropDown > .cartData > .navBox1 > .navCard > .navData {
+  padding: 5px 20px;
+  /* border: 1px solid white; */
+}
+.headerDropDown > .cartData > .navBox1 > .navCard > .navData h4 {
+  line-height: 0;
+}
+.headerDropDown > .cartData > .navBox1 > .navCard > img {
+  width: 15%;
+}
+
+.headerDropDown > .cartData > .navBox1 > h3 {
+  color: gray;
+  font-size: 12px;
+}
+.headerDropDown > .cartData > .navBox1 > a {
+  text-decoration: none;
+  text-align: start;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 4px;
+}

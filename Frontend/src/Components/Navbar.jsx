@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "../Styles/navbar.css";
 import { Link } from "react-router-dom";
 import $ from "jquery";
+import { NavbarList } from "./NavbarList";
+import { NavbarBag } from "./NavbarBag";
 
 export const Navbar = () => {
+  const [select, setSelect] = useState("");
+
   $(document).on("mouseover", ".showDown,.headerDropDown", function () {
     $(".headerDropDown").addClass("active");
-    // $(".headerDropDown").css({
-    //   height: "350px",
-    //   overflow: "visible",
-    // });
+    // setSelect("");
   });
+
+  $(document).on("mouseover", ".showDown", function () {
+    setSelect("");
+  });
+
+  //
   $(document).on("mouseout", ".showDown,.headerDropDown", function () {
     $(".headerDropDown").removeClass("active");
-    // $(".headerDropDown").css({
-    //   height: "0",
-    //   overflow: "hidden",
-    // });
+    // setSelect("");
   });
+
+  const handleSelect = () => {
+    if (select == "bag") {
+      $(".headerDropDown").removeClass("active");
+      setSelect("");
+    } else {
+      $(".headerDropDown").addClass("active");
+      setSelect("bag");
+    }
+  };
 
   return (
     <>
@@ -39,7 +53,7 @@ export const Navbar = () => {
           <Link>
             <i className="fa fa-search"></i>
           </Link>
-          <Link>
+          <Link onClick={handleSelect}>
             <svg
               height="48"
               viewBox="0 0 17 48"
@@ -51,37 +65,9 @@ export const Navbar = () => {
           </Link>
         </div>
       </header>
+
       <div className="headerDropDown">
-        <div className="navList">
-          <p>Shop</p>
-          <Link>Shop the Latest</Link>
-          <Link>Mac</Link>
-          <Link>iPad</Link>
-          <Link>iPhone</Link>
-          <Link>Apple Watch</Link>
-          <Link>Accessories</Link>
-        </div>
-        {/*  */}
-
-        <div className="navList">
-          <p>Quick Links</p>
-          <Link>Find a Store</Link>
-          <Link>Order Status</Link>
-          <Link>Financing</Link>
-          <Link>Apple Trade In</Link>
-        </div>
-        {/*  */}
-        {/*  */}
-
-        <div className="navList">
-          <p>Shop Special Stores</p>
-          <Link>Certified Refurbished</Link>
-          <Link>Education</Link>
-          <Link>Business</Link>
-          <Link>Veterans and Military</Link>
-          <Link>Government</Link>
-        </div>
-        {/*  */}
+        {select ? <NavbarBag /> : <NavbarList />}
       </div>
     </>
   );
