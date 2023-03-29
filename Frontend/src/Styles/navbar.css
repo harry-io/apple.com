@@ -35,13 +35,13 @@ header > .icons > a > svg {
   position: fixed;
   top: 50px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
   height: 0;
   overflow: hidden;
   z-index: 120;
   transition: 0.5s ease;
-  padding: 0 280px;
+  /* padding: 0 280px; */
   display: flex;
   justify-content: center;
 }
@@ -57,7 +57,7 @@ header > .icons > a > svg {
 
 .headerDropDown > .navList {
   display: flex;
-  width: 40%;
+  width: 20%;
   opacity: 0;
   flex-direction: column;
   gap: 10px;
@@ -65,7 +65,8 @@ header > .icons > a > svg {
   transition-delay: 0.2s;
   transition: 0.5s ease;
   padding: 10px 20px;
-  /* border: 1px solid red; */
+  text-align: start;
+  /* border: 1px solid white; */
 }
 
 .headerDropDown > .navList > p {

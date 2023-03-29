@@ -44,6 +44,7 @@
   /* top: 100px; */
   font-size: 50px;
   font-weight: 500;
+  user-select: none;
   line-height: 0;
 }
 
@@ -51,6 +52,7 @@
   /* position: sticky; */
   /* top: 120px; */
   font-size: 30px;
+  user-select: none;
   font-weight: 400;
 }
 
@@ -70,11 +72,13 @@
   line-height: 10px;
   font-size: 40px;
   font-weight: 500;
+  user-select: none;
 }
 .homeMain > .homeItemBx > .itemText > h3 {
   line-height: 15px;
   font-size: 20px;
   font-weight: 500;
+  user-select: none;
   /* color: #2d2d2d; */
 }
 
@@ -120,7 +124,14 @@
 }
 .homeMain > .homeGrid > .homeGridBx > .gridText {
   text-align: center;
+  user-select: none;
+  padding: 50px 0 0 0;
   /* border: 1px solid black; */
+}
+.homeMain > .homeGrid > .homeGridBx > .gridText h1,
+.homeMain > .homeGrid > .homeGridBx > .gridText h3 {
+  font-weight: 500;
+  line-height: 10px;
 }
 
 .homeMain > .homeGrid > .homeGridBx > img {
