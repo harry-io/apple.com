@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Footer } from "../Components/Footer";
 import { Navbar } from "../Components/Navbar";
 import Home from "../Pages/Home/Home";
 import Iphone from "../Pages/Iphone/Iphone";
@@ -13,6 +14,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Home />
+            <Footer />
           </>
         }
       />
