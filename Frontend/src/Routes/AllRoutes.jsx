@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Footer } from "../Components/Footer";
 import { Navbar } from "../Components/Navbar";
 import Admin from "../Pages/Admin/Admin";
 import Home from "../Pages/Home/Home";
@@ -14,6 +15,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Home />
+            <Footer />
           </>
         }
       />
