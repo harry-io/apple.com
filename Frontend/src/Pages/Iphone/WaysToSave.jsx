@@ -65,25 +65,19 @@ function SamplePrevArrow(props) {
 //
 //
 
-const AppleExperience = () => {
+const WaysToSave = () => {
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     dots: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1195,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 1,
         },
@@ -97,19 +91,20 @@ const AppleExperience = () => {
           {/*  */}
           <Div>
             <Image
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-50-applemusic-202303?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1677003263514"
+              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-50-tradein-202302?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1677614394258"
               alt="Rihanna"
             />
             <Details>
-              <Title style={{ color: "white" }}>APPLE MUSIC</Title>
-              <TitleB style={{ color: "white" }}>
-                Rihanna's iconic hits now in Spatial Audio. ^
+              <Title>APPLE TRADE IN</Title>
+              <TitleB>
+                Get $200–$600 in credit toward iPhone 14 or iPhone 14 Pro when
+                you trade in iPhone 11 or higher.2
               </TitleB>
             </Details>
           </Div>
           <Div>
             <Image
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-50-subscriptions-202108_GEO_US?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1626375546000"
+              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-50-carriertrade-202303?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1678213536139"
               alt="Rihanna"
             />
             <Details>
@@ -122,31 +117,48 @@ const AppleExperience = () => {
               alt="Rihanna"
             />
             <Details>
-              <TitleB>We have got you covered.</TitleB>
+              <TitleB>SPECIAL CARRIER DEALS AT APPLE</TitleB>
               <Title>
-                AppleCare+ now comes with unlimited repairs for accidential
-                damage protection.
+                Save up to $800 on the newest iPhone after trade-⁠in.1
               </Title>
             </Details>
           </Div>
           <Div>
             <Image
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-50-applepay-202303?wid=480&hei=500&fmt=jpeg&qlt=95&.v=1677655420359"
+              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-50-applecard-202108?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1625761620000"
               alt="Rihanna"
             />
             <Details>
-              <Title>Mac</Title>
-              <TitleB>Rihanna's iconic hits now in Spatial Audio. ^</TitleB>
+              <Title>APPLE CARD</Title>
+              <TitleB>
+                APPLE CARD Pay 0% APR over 24 months when you choose to check
+                out with Apple Card Monthly Installments.3
+              </TitleB>
             </Details>
           </Div>
           <Div>
             <Image
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-50-homekit-202301?wid=480&hei=500&fmt=jpeg&qlt=95&.v=1670880984728"
+              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-50-boxes-202209?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1660852103701"
               alt="Rihanna"
             />
             <Details>
-              <Title>Mac</Title>
-              <TitleB>Rihanna's iconic hits now in Spatial Audio. ^</TitleB>
+              <Title>IPHONE UPGRADE PROGRAM</Title>
+              <TitleB>
+                The easiest way to upgrade to the latest iPhone. Get the latest
+                iPhone every year, low monthly payments, and AppleCare+.4
+              </TitleB>
+            </Details>
+          </Div>
+          <Div>
+            <Image
+              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-50-refurb-202202?wid=480&hei=500&fmt=p-jpg&qlt=95&.v=1643155828000"
+              alt="Rihanna"
+            />
+            <Details>
+              <Title>CERTIFIED REFURBISHED</Title>
+              <TitleB>
+                Shop refurbished Apple products backed by a one‑year warranty.
+              </TitleB>
             </Details>
           </Div>
 
@@ -157,10 +169,9 @@ const AppleExperience = () => {
   );
 };
 
-export default AppleExperience;
+export default WaysToSave;
 // Styled css
 const CarouselCategoryMain = styled.div`
-  margin-top: 4.5rem;
   padding: 10px 0;
   background-color: #ffffff;
 `;
@@ -186,8 +197,8 @@ const Image = styled.img`
 `;
 const Details = styled.div`
   position: absolute;
-  top: 18px;
-  left: 55px;
+  top: 35px;
+  left: 90px;
 `;
 const Title = styled.p`
   width: 80%;
@@ -196,6 +207,12 @@ const Title = styled.p`
   font-weight: 400;
   margin-bottom: -15px;
   color: #605f5f;
+  @media (max-width: 768px) {
+    font-size: medium;
+  }
+  @media (max-width: 480px) {
+    font-size: small;
+  }
 `;
 const TitleB = styled.p`
   text-align: justify;
@@ -203,4 +220,10 @@ const TitleB = styled.p`
   margin-bottom: -0.8rem;
   font-size: 1.5rem;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: medium;
+  }
+  @media (max-width: 480px) {
+    font-size: small;
+  }
 `;
