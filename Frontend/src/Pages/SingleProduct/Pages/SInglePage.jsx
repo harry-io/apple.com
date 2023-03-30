@@ -1,10 +1,9 @@
 import React from "react";
-import { Footer } from "../../../Components/Footer";
 import { Navbar } from "../../../Components/Navbar";
 import SimpleSlider from "../carousel/SimpleSlider";
 import "../Style/Mac.css";
 
-function Mac() {
+function SinglePage() {
   return (
     <div className="main-mac">
     <Navbar />
@@ -102,4 +101,4 @@ function Mac() {
   );
 }
 
-export default Mac;
+export default SinglePage;
