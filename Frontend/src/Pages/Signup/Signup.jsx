@@ -1,45 +1,162 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import NavbarB from "../../Components/NavbarB";
 import Country from "../../Components/Country";
 import Header from "./Header";
 import AuthFooter from "../../Components/AuthFooter";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signupAction } from "../../Redux/Auth/auth.action";
+import { GrFormViewHide } from "react-icons/gr";
+import { BiShowAlt, BiMessageAltError } from "react-icons/bi";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //
+  const [show, setShow] = useState(false);
+  //
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [age, setAge] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  //
+  //
+  //
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //
+    let body = {
+      username,
+      email,
+      password,
+      country,
+      age: +age,
+    };
+    //
+    //
+    if (password.length < 7) {
+      toast.error("Password is too short !", {
+        icon: (
+          <BiMessageAltError
+            style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+          />
+        ),
+        style: {
+          borderRadius: "50px",
+          background: "#817e7e93",
+          color: "white",
+        },
+      });
+    } else {
+      if (password !== confirmPassword) {
+        toast.error("Passwords are not matching !", {
+          icon: (
+            <BiMessageAltError
+              style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+            />
+          ),
+          style: {
+            borderRadius: "50px",
+            background: "#817e7e93",
+            color: "white",
+          },
+        });
+      } else {
+        setUsername("");
+        setEmail("");
+        setAge("");
+        setConfirmPassword("");
+        setAge("");
+        setCountry("");
+        //
+        dispatch(signupAction(body, navigate));
+      }
+    }
+  };
   return (
     <SignupMain>
       <NavbarB />
       <Header />
       {/*  */}
-      <SignupForm>
+      <SignupForm action="submit" onSubmit={handleSubmit}>
         <InputContainer>
-          <Input type="text" placeholder="Username" />
+          <Input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
           <Label className="input-label">Username</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
         <InputContainer>
-          <Input type="email" placeholder="Email" />
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
           <Label className="input-label">Email</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
         <InputContainer>
-          <Input type="email" placeholder="Age" />
+          <Input
+            type="number"
+            placeholder="Age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            required
+          />
           <Label className="input-label">Email</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
-        <Country />
+        <Country country={country} setCountry={setCountry} />
         <InputContainer>
-          <Input type="email" placeholder="Password" />
-          <Label className="input-label">Email</Label>
+          <Input
+            type={show ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <Label className="input-label">Password</Label>
           <Span className="input-highlight"></Span>
+          <ShowHide>
+            {show ? (
+              <BiShowAlt onClick={() => setShow(!show)} />
+            ) : (
+              <GrFormViewHide onClick={() => setShow(!show)} />
+            )}
+          </ShowHide>
         </InputContainer>
         <InputContainer>
-          <Input type="email" placeholder="Confirm Password" />
-          <Label className="input-label">Email</Label>
+          <Input
+            type="text"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          <Label className="input-label">Confirm Password</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
 
-        <Logo>
+        <Logo
+          onClick={() =>
+            toast.success("hsvhcvh", {
+              icon: "bb",
+              style: {
+                borderRadius: "10px",
+              },
+            })
+          }
+        >
           <img
             width={"100%"}
             src="https://appleid.cdn-apple.com/static/bin/cb1900903086/dist/assets/privacy-icon.png"
@@ -147,4 +264,13 @@ const Submit = styled.input`
   text-align: center;
   cursor: pointer;
   color: #ffffff;
+`;
+const ShowHide = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 25%;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #007bff;
 `;

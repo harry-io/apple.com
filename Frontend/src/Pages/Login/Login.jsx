@@ -1,26 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import NavbarB from "../../Components/NavbarB";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import Header from "./Header";
 import AuthFooter from "../../Components/AuthFooter";
+import { GrFormViewHide } from "react-icons/gr";
+import { BiShowAlt } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginAction } from "../../Redux/Auth/auth.action";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //
+  const [show, setShow] = useState(false);
+  //
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+  //
+  //
+  //
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //
+    const body = {
+      email,
+      password,
+    };
+    //
+    dispatch(loginAction(body, navigate));
+  };
   return (
     <SignupMain>
       <NavbarB />
       <Header />
       {/*  */}
-      <SignupForm>
+      <SignupForm action="submit" onSubmit={handleSubmit}>
         <InputContainer>
-          <Input type="email" placeholder="Email" />
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
           <Label className="input-label">Email</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
         <InputContainer>
-          <Input type="email" placeholder="Password" />
-          <Label className="input-label">Email</Label>
+          <Input
+            type={show ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <Label className="input-label">Password</Label>
           <Span className="input-highlight"></Span>
+          <ShowHide>
+            {show ? (
+              <BiShowAlt onClick={() => setShow(!show)} />
+            ) : (
+              <GrFormViewHide onClick={() => setShow(!show)} />
+            )}
+          </ShowHide>
         </InputContainer>
         <Submit>
           <FaRegArrowAltCircleRight />
@@ -102,4 +147,13 @@ const Submit = styled.button`
   &:focus {
     color: red;
   }
+`;
+const ShowHide = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 25%;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #007bff;
 `;

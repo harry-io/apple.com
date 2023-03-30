@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Country = () => {
+const Country = ({ country, setCountry }) => {
   return (
-    <Select>
+    <Select value={country} onChange={(e) => setCountry(e.target.value)}>
       <option value="AFG" dir="auto">
         Afghanistan
       </option>
