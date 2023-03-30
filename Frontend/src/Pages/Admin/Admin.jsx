@@ -1,12 +1,12 @@
 import React from 'react'
+import Dashboard from '../../Components/Admin/Dashboard';
 import Sidebar from '../../Components/Admin/Sidebar';
-import Temp from '../../Components/Admin/temp';
 
 const Admin = () => {
     return (
         <>
             <Sidebar />
-            <Temp />
+            <Dashboard />
         </>
     )
 }
