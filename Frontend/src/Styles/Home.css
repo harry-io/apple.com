@@ -21,10 +21,14 @@
   position: sticky;
   top: 0;
   object-fit: cover;
-  height: 100%;
+  height: auto;
   width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   object-position: 0 00px;
   /* height: inherit; */
+  /* border: 1px solid white; */
 }
 
 .homeMain > .homeImgBx > .text {
@@ -41,10 +45,9 @@
 }
 
 .homeMain > .homeImgBx > .text h1 {
-  /* position: sticky; */
-  /* top: 100px; */
-  font-size: 50px;
-  font-weight: 500;
+  font-size: 120px;
+  /* font-weight: 500; */
+  font-weight: 700;
   user-select: none;
   line-height: 0;
 }
@@ -116,7 +119,7 @@
   align-items: center;
   flex-direction: column;
   /* justify-content: center; */
-  /* border: 1px solid #000; */
+  /* border: 1px solid blue; */
 }
 
 .homeMain > .homeGrid > .homeGridBx:nth-child(3),
@@ -141,4 +144,64 @@
   max-width: 100%;
   height: 440px;
   object-fit: cover;
+  /* border: 1px solid red; */
+}
+/*  */
+
+@media only screen and (max-width: 940px) {
+  .homeMain > .homeImgBx {
+    height: 60vh;
+  }
+  .homeMain > .homeImgBx > video {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .homeMain > .homeImgBx > .text {
+    height: 80%;
+  }
+  .homeMain > .homeImgBx > .text h1 {
+    font-size: 45px;
+  }
+  .homeMain > .homeImgBx > .text h3 {
+    font-size: 40px;
+  }
+
+  .homeMain > .homeGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .homeMain > .homeGrid > .homeGridBx > img {
+    object-fit: contain;
+    height: auto;
+  }
+
+  .homeMain > .homeGrid > .homeGridBx > .gridText h1,
+  .homeMain > .homeGrid > .homeGridBx > .gridText h3 {
+    font-weight: 500;
+    line-height: 20px;
+    /* font-size: 20px; */
+  }
+  .homeMain > .homeGrid > .homeGridBx > .gridText h3 {
+    font-size: 12px;
+  }
+}
+
+/*  */
+@media only screen and (max-width: 540px) {
+  .homeMain > .homeImgBx > .text {
+    height: 75%;
+  }
+  .homeMain > .homeImgBx {
+    height: 50vh;
+  }
+  .homeMain > .homeImgBx > .text h1 {
+    font-size: 30px;
+  }
+  .homeMain > .homeImgBx > .text h3 {
+    font-size: 25px;
+  }
+  .homeMain > .homeImgBx > video {
+    object-position: 0 150px;
+  }
 }

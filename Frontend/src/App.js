@@ -1,6 +1,7 @@
 import "./App.css";
 import AllRoutes from "./Routes/AllRoutes";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <ChakraProvider resetCSS={false}>
         <AllRoutes />
       </ChakraProvider>
+      <Toaster />
     </div>
   );
 }
