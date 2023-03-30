@@ -7,6 +7,7 @@ import Home from "../Pages/Home/Home";
 import Iphone from "../Pages/Iphone/Iphone";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import Mac from "../Pages/SingleProduct/Pages/Mac";
 import Store from "../Pages/Store/Store";
 const AllRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AllRoutes = () => {
       />
       <Route path="/store" element={<Store />} />
       <Route path="/iphone" element={<Iphone />} />
+      <Route path="/iphone/:id" element={<Mac/>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
