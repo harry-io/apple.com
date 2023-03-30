@@ -9,6 +9,7 @@ import Iphone from "../Pages/Iphone/Iphone";
 import Login from "../Pages/Login/Login";
 import Mac from "../Pages/Mac/Mac";
 import Signup from "../Pages/Signup/Signup";
+import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
 import Store from "../Pages/Store/Store";
 import Watch from "../Pages/Watch/Watch";
 const AllRoutes = () => {
@@ -24,6 +25,7 @@ const AllRoutes = () => {
           </>
         }
       />
+
       <Route
         path="/store"
         element={
@@ -69,6 +71,10 @@ const AllRoutes = () => {
           </>
         }
       />
+      
+
+      <Route path="/iphone/:id" element={<SinglePage/>} />
+
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
