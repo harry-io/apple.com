@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <HeaderMain>
       <HeaderMainA>
-        <ParaA>SHop Apple Watch</ParaA>
+        <ParaA>Shop Apple Watch</ParaA>
       </HeaderMainA>
       <HeaderMainB>
         <HeaderMainBa>
@@ -58,6 +58,9 @@ const HeaderMain = styled.div`
 `;
 const HeaderMainA = styled.div`
   width: 50%;
+  @media (max-width: 1124px) {
+    width: 100%;
+  }
 `;
 const ParaA = styled.h1`
   display: flex;
@@ -78,6 +81,9 @@ const HeaderMainB = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  @media (max-width: 1124px) {
+    display: none;
+  }
 `;
 const HeaderMainBa = styled.div`
   display: flex;

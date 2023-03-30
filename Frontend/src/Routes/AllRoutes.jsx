@@ -24,11 +24,51 @@ const AllRoutes = () => {
           </>
         }
       />
-      <Route path="/store" element={<Store />} />
-      <Route path="/iphone" element={<Iphone />} />
-      <Route path="/watch" element={<Watch />} />
-      <Route path="/mac" element={<Mac />} />
-      <Route path="/ipad" element={<Ipad />} />
+      <Route
+        path="/store"
+        element={
+          <>
+            <Navbar />
+            <Store />
+          </>
+        }
+      />
+      <Route
+        path="/iphone"
+        element={
+          <>
+            <Navbar />
+            <Iphone />
+          </>
+        }
+      />
+      <Route
+        path="/watch"
+        element={
+          <>
+            <Navbar />
+            <Watch />
+          </>
+        }
+      />
+      <Route
+        path="/mac"
+        element={
+          <>
+            <Navbar />
+            <Mac />
+          </>
+        }
+      />
+      <Route
+        path="/ipad"
+        element={
+          <>
+            <Navbar />
+            <Ipad />
+          </>
+        }
+      />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />

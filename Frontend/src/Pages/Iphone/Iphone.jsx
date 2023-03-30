@@ -6,7 +6,8 @@ import { getProducts } from "../../Redux/Products/products.action";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import Card from "../../Components/Card";
-
+import WaysToSave from "./WaysToSave";
+import AppleExperience from "../Store/AppleExperience";
 //
 //
 function SampleNextArrow(props) {
@@ -92,12 +93,33 @@ const Iphone = () => {
     dots: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   //
   //
   return (
     <ProductMain>
       <Header />
+      {/*  */}
+      <HeaderMainA>
+        <ParaA>
+          All models.
+          <ParaB> Take your pick.</ParaB>
+        </ParaA>
+      </HeaderMainA>
       {/*  */}
       <CarouselWrapper>
         <SlickCarousel {...settings} style={{ position: "relative" }}>
@@ -107,6 +129,16 @@ const Iphone = () => {
             ))}
         </SlickCarousel>
       </CarouselWrapper>
+      {/*  */}
+      <HeaderMainA>
+        <ParaA>
+          Ways to save.
+          <ParaB> Find what works for you.</ParaB>
+        </ParaA>
+      </HeaderMainA>
+      <WaysToSave />
+      <AppleExperience />
+      {/*  */}
     </ProductMain>
   );
 };
@@ -120,3 +152,29 @@ const CarouselWrapper = styled.div`
 `;
 const SlickCarousel = styled(Slider)``;
 const ProductMain = styled.div``;
+const HeaderMainA = styled.div`
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+`;
+const ParaA = styled.h1`
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 30px;
+  display: inline;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
+`;
+const ParaB = styled.p`
+  color: #6e6e73;
+  display: inline;
+  font-weight: 600;
+`;

@@ -6,6 +6,8 @@ import { getProducts } from "../../Redux/Products/products.action";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import Card from "../../Components/Card";
+import WaysToSave from "../Iphone/WaysToSave";
+import AppleExperience from "../Store/AppleExperience";
 
 //
 //
@@ -90,6 +92,20 @@ const Mac = () => {
     dots: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1195,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   //
   //
@@ -97,6 +113,12 @@ const Mac = () => {
     <ProductMain>
       <Header />
       {/*  */}
+      <HeaderMainA>
+        <ParaA>
+          All models.
+          <ParaB> Take your pick.</ParaB>
+        </ParaA>
+      </HeaderMainA>
       <CarouselWrapper>
         <SlickCarousel {...settings} style={{ position: "relative" }}>
           {products.length > 0 &&
@@ -105,6 +127,8 @@ const Mac = () => {
             ))}
         </SlickCarousel>
       </CarouselWrapper>
+      <WaysToSave />
+      <AppleExperience />
     </ProductMain>
   );
 };
@@ -118,3 +142,28 @@ const CarouselWrapper = styled.div`
 `;
 const SlickCarousel = styled(Slider)``;
 const ProductMain = styled.div``;
+const HeaderMainA = styled.div`
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: 3rem;
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+`;
+const ParaA = styled.h1`
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 30px;
+  display: inline;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
+`;
+const ParaB = styled.p`
+  color: #6e6e73;
+  display: inline;
+  font-weight: 600;
+`;
