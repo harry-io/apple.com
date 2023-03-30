@@ -48,7 +48,8 @@ header > .icons > a > svg {
 
 .headerDropDown.active {
   visibility: visible;
-  height: 400px;
+  padding: 40px 0;
+  height: 450px;
 }
 
 .headerDropDown.active > .navList {
