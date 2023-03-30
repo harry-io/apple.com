@@ -7,8 +7,43 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease;
   /* border: 1px solid white; */
 }
+
+header > .Navham {
+  position: relative;
+  top: 15px;
+  left: 10px;
+  height: 20px;
+  width: 30px;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  /* border-top: 2px solid white; */
+}
+header > .Navham::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s ease;
+  border-bottom: 2px solid white;
+}
+header > .Navham::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s ease;
+  border-top: 2px solid white;
+}
+/*  */
+
 header > .icons {
   display: flex;
   align-items: center;
@@ -20,13 +55,8 @@ header > .icons {
 header > .icons > a {
   text-decoration: none;
   color: white;
+  /* border: 1px solid white; */
 }
-/* 
-  header > .icons > .showDown:hover ~ .headerDropDown {
-    height: 100%;
-    overflow: visible;
-    transition: 0.5s;
-  } */
 
 header > .icons > a > svg {
   fill: white;
@@ -43,6 +73,7 @@ header > .icons > a > svg {
   transition: 0.5s ease;
   /* padding: 0 280px; */
   display: flex;
+  z-index: 999;
   justify-content: center;
 }
 
@@ -132,4 +163,85 @@ header > .icons > a > svg {
   font-weight: 700;
   font-size: 12px;
   margin: 4px;
+}
+/*  */
+@media only screen and (max-width: 940px) {
+  /*Big smartphones [426px -> 600px]*/
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  header.active {
+    min-height: 100vh;
+    width: 100%;
+    gap: 30px;
+  }
+
+  header > .icons {
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+  }
+  header.active .icons {
+    flex-direction: column;
+    gap: 10px;
+    text-align: start;
+    font-size: 20px;
+    width: auto;
+    overflow: visible;
+    visibility: visible;
+
+    /* border: 1px solid white; */
+  }
+  header.active > .icons > a {
+    width: 100%;
+  }
+  header > .Navham {
+    visibility: visible;
+    opacity: 1;
+  }
+  header.active > .Navham {
+    border: none;
+  }
+  header.active > .Navham::before {
+    transform: rotate(-45deg) translateY(-5px) translate(5px);
+  }
+  header.active > .Navham::after {
+    transform: rotate(45deg) translateY(5px) translate(5px);
+  }
+  /*  */
+
+  .headerDropDown > .cartData {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .headerDropDown > .cartData > .navBox1 > .navCard > img {
+    width: 30%;
+  }
+  /* .headerDropDown.ac */
+  .headerDropDown.active {
+    overflow-y: scroll;
+    padding: 120px 0;
+    flex-direction: column;
+    /* border: 1px solid white; */
+  }
+
+  .headerDropDown.active > .navList {
+    width: 80%;
+  }
+}
+
+/*  */
+@media only screen and (max-width: 425px) {
+  .headerDropDown > .cartData > .navBox1 > .navCard {
+    flex-direction: column;
+  }
+  .headerDropDown > .cartData > .navBox1 > .navCard {
+    border-bottom: 1px solid #fff;
+  }
+  .headerDropDown > .cartData > .navBox1 > .navCard > img {
+    width: 50%;
+  }
 }
