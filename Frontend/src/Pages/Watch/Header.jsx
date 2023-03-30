@@ -23,7 +23,7 @@ const Header = () => {
         <HeaderMainBb>
           <svg
             viewBox="0 0 35 35"
-            class="as-svgicon as-svgicon-applestore as-svgicon-base as-svgicon-applestorebase"
+            className="as-svgicon as-svgicon-applestore as-svgicon-base as-svgicon-applestorebase"
             role="img"
             aria-hidden="true"
             width="35px"
