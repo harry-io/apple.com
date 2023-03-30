@@ -11,6 +11,7 @@ import {
     DrawerContent,
     Text,
     useDisclosure,
+    Image,
 } from '@chakra-ui/react';
 import {
     FiHome,
@@ -18,7 +19,8 @@ import {
     FiMenu,
 } from 'react-icons/fi';
 import { IoAnalyticsSharp } from 'react-icons/io5'
-import { FiShoppingBag } from 'react-icons/fi'
+import { FiShoppingBag } from 'react-icons/fi';
+import logo from '../../Images/boltLogo.png'
 
 const LinkItems = [
     { name: 'Dashboard', icon: FiHome, href: '#dashboard' },
@@ -67,7 +69,8 @@ const SidebarContent = ({ onClose, ...rest }) => {
             pos="fixed"
             h="full"
             {...rest}>
-            <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+            <Flex h="20" alignItems="center" mx="8" gap='20px'>
+                <Image w='40px' src={logo} />
                 <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
                     BOLT
                 </Text>
@@ -134,9 +137,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 aria-label="open menu"
                 icon={<FiMenu />}
             />
-            <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-                BOLT
-            </Text>
+            <Box display={'flex'}>
+                <Image w='40px' src={logo} ml='20px' />
+                <Text fontSize="2xl" ml='20px' fontFamily="monospace" fontWeight="bold">
+                    BOLT
+                </Text>
+            </Box>
         </Flex>
     );
 };

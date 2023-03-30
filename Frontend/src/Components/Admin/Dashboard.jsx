@@ -11,7 +11,7 @@ import {
 import { BsPerson } from 'react-icons/bs';
 import { BiDollar } from 'react-icons/bi';
 import { FiShoppingBag } from 'react-icons/fi'
-import { FaRegUser } from 'react-icons/fa'
+import Orders from './Orders';
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -45,7 +45,7 @@ function StatsCard(props) {
 
 export default function Dashboard() {
     return (
-        <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
+        <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }} id='dashboard'>
             <chakra.h1
                 textAlign={'left'}
                 fontSize={'4xl'}
@@ -70,6 +70,14 @@ export default function Dashboard() {
                     icon={<BsPerson size={'3em'} />}
                 />
             </SimpleGrid>
+            <chakra.h1
+                textAlign={'left'}
+                fontSize={'4xl'}
+                py={10}
+                fontWeight={'bold'}>
+                Recent Orders
+            </chakra.h1>
+            <Orders />
         </Box>
     );
 }

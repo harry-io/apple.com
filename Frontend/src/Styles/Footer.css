@@ -1,0 +1,65 @@
+footer {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 20px; */
+  padding: 20px 0 0 0;
+  background: #f2f2f2;
+}
+footer > .footerTop {
+  width: 65%;
+  /* border: 1px solid black; */
+}
+footer > .footerTop > P {
+  text-align: start;
+  font-size: 13px;
+  color: #2d2d2d;
+}
+
+footer > .footerTerms {
+  width: 65%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  /* background: #e7e7e7; */
+  border-top: 1px solid black;
+}
+
+footer > .footerTerms > .footerCard {
+  padding: 10px;
+  /* gap: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+footer > .footerTerms > .footerCard > h1 {
+  font-size: 15px;
+  font-weight: 500;
+  /* border: 1px solid black; */
+}
+footer > .footerTerms > .footerCard > p {
+  /* width: 50%; */
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: start;
+  line-height: 15px;
+  /* border: 1px solid black; */
+}
+footer > .footerTerms > .footerCard > p a {
+  text-decoration: none;
+  color: #2d2d2d;
+}
+footer > .footerTerms > .footerCard > p a:hover {
+  text-decoration: underline;
+}
+
+footer > .footerTerms > .footerCard > p h3 {
+  font-size: 12px;
+  font-weight: 500;
+}
