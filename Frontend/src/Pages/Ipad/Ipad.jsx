@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../Redux/Products/products.action";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-import Card from "../../Components/Card";
+import Card from "./Card";
 import WaysToSave from "../Iphone/WaysToSave";
 import AppleExperience from "../Store/AppleExperience";
 
@@ -100,7 +100,7 @@ const Ipad = () => {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
         },
@@ -150,6 +150,7 @@ const HeaderMainA = styled.div`
   margin-top: 3rem;
   @media (max-width: 768px) {
     width: 95%;
+    justify-content: center;
   }
 `;
 const ParaA = styled.h1`
@@ -167,4 +168,8 @@ const ParaB = styled.p`
   color: #6e6e73;
   display: inline;
   font-weight: 600;
+  font-size: 30px;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 `;

@@ -1,56 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../Redux/Products/products.action";
 //
-let products = [
-  {
-    id: 1,
-    title: "IPHONE 14",
-    comment: "Wonderful",
-    price:
-      "From $799 or $33.29/mo.per month for 24 mo.months before trade‑inFootnote*",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-iphone-14-202303_GEO_US?wid=400&hei=500&fmt=jpeg&qlt=95&.v=1677558944069",
-  },
-  {
-    id: 2,
-    title: "IPHONE 14",
-    comment: "Wonderful",
-    price:
-      "From $799 or $33.29/mo.per month for 24 mo.months before trade‑inFootnote*",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-macbook-pro-202301?wid=400&hei=500&fmt=p-jpg&qlt=95&.v=1671578693545",
-  },
-  {
-    id: 3,
-    title: "IPHONE 14",
-    comment: "Wonderful",
-    price:
-      "From $799 or $33.29/mo.per month for 24 mo.months before trade‑inFootnote*",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-iphone-14-202303_GEO_US?wid=400&hei=500&fmt=jpeg&qlt=95&.v=1677558944069",
-  },
-  {
-    id: 4,
-    title: "IPHONE 14",
-    comment: "Wonderful",
-    price:
-      "From $799 or $33.29/mo.per month for 24 mo.months before trade‑inFootnote*",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-iphone-14-202303_GEO_US?wid=400&hei=500&fmt=jpeg&qlt=95&.v=1677558944069",
-  },
-  {
-    id: 5,
-    title: "IPHONE 14",
-    comment: "Wonderful",
-    price:
-      "From $799 or $33.29/mo.per month for 24 mo.months before trade‑inFootnote*",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-iphone-14-202303_GEO_US?wid=400&hei=500&fmt=jpeg&qlt=95&.v=1677558944069",
-  },
-];
+
 //
 const Products = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts("https://back-ened-bolt.onrender.com/products"));
+  }, []);
+  let { isLoading, isError, products } = useSelector(
+    (store) => store.productsReducer
+  );
+  console.log(products);
   return (
     <ProductsMain>
       {/* HEADER */}
@@ -63,7 +27,7 @@ const Products = () => {
       {/* PRODUCTS */}
       <ProductsContainer>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </ProductsContainer>
     </ProductsMain>
@@ -89,16 +53,28 @@ const ParaA = styled.h1`
   font-size: 30px;
   display: inline;
   font-weight: 600;
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
 `;
 const ParaB = styled.p`
   font-size: 30px;
   color: #6e6e73;
   display: inline;
   font-weight: 600;
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
 `;
 //
 const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
