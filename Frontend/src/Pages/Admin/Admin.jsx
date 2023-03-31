@@ -9,9 +9,9 @@ const Admin = () => {
     return (
         <>
             {/* <Sidebar /> */}
-            {/* <Dashboard />  */}
-            {/* <AdminProducts /> */}
-            {/* <Analytics /> */}
+            <Dashboard />
+            <AdminProducts />
+            <Analytics />
             <Settings />
         </>
     )

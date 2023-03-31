@@ -61,7 +61,7 @@ export default function Dashboard() {
                 />
                 <StatsCard
                     title={'Sales'}
-                    stat={'1,000'}
+                    stat={'10,000'}
                     icon={<BiDollar size={'2.9em'} />}
                 />
                 <StatsCard
