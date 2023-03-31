@@ -18,7 +18,6 @@ const Login = () => {
   //
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
   //
   //
   //
@@ -85,10 +84,12 @@ const SignupMain = styled.div`
 const SignupForm = styled.form`
   width: 36%;
   margin: auto;
-  min-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  @media (max-width: 769px) {
+    width: 90%;
+  }
 `;
 const InputContainer = styled.div`
   position: relative;

@@ -49,6 +49,12 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   width: 20%;
   cursor: pointer;
+  @media (max-width: 893px) {
+    width: 40%;
+  }
+  @media (max-width: 400px) {
+    width: 70%;
+  }
 `;
 const Options = styled.div`
   display: flex;

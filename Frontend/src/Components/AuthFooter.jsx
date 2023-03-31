@@ -7,8 +7,8 @@ const AuthFooter = () => {
       <AuthFooterMainWrapper>
         {/*  */}
         <DivA>
-          Need some help? <StyledLink href="#">__ Chat now</StyledLink>__or call
-          1-800-MY-BOLT.
+          <p>Need some help?</p> <StyledLink href="#">Chat now</StyledLink>
+          <p>or call 1-800-MY-BOLT.</p>
         </DivA>
         {/*  */}
         <DivB>
@@ -20,11 +20,10 @@ const AuthFooter = () => {
           <DivBb>
             <Div>Copyright © 2023 Apple Inc. All rights reserved.</Div>
             <Div>
-              <p>Privacy Policy</p> <p>|</p> <p>Terms of Use</p> <p>|</p>
+              <p>Privacy Policy</p> <p>Terms of Use</p>
             </Div>
             <Div>
-              <p>Privacy Policy</p> <p>|</p> <p>Terms of Use</p>
-              <p>|</p>
+              <p>Privacy Policy</p> <p>Terms of Use</p>
             </Div>
             <Div>United States</Div>
           </DivBb>
@@ -56,6 +55,13 @@ const DivA = styled.div`
   margin: auto;
   padding: 1.5rem 0;
   display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  @media (max-width: 793px) {
+    font-size: small;
+    width: 90%;
+  }
 `;
 const DivB = styled.div`
   width: 100%;
@@ -83,6 +89,11 @@ const DivBb = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   border-top: 1px solid #b5b4b4;
+
+  @media (max-width: 793px) {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const Div = styled.div`

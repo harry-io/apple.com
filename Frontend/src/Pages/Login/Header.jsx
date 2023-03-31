@@ -15,23 +15,31 @@ export default Header;
 const HeaderMain = styled.div`
   width: 90%;
   margin: auto;
-  min-width: 480px;
 `;
 const MainHeading = styled.h1`
   width: 80%;
   margin: auto;
-  min-width: 480px;
   text-align: left;
   margin-bottom: 4rem;
   font-weight: 600;
+  @media (max-width: 793px) {
+    width: 100%;
+    font-size: 24px;
+  }
 `;
 const DivB = styled.div`
   width: 36%;
   margin: auto;
-  min-width: 480px;
+  @media (max-width: 793px) {
+    width: 100%;
+  }
 `;
 const Heading = styled.p`
   font-size: 1.5rem;
   font-weight: 600;
   color: grey;
+  @media (max-width: 793px) {
+    width: 100%;
+    font-size: 18px;
+  }
 `;

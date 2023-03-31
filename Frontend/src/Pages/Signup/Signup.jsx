@@ -192,11 +192,13 @@ const SignupMain = styled.div`
 const SignupForm = styled.form`
   width: 36%;
   margin: auto;
-  min-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+  @media (max-width: 793px) {
+    width: 90%;
+  }
 `;
 const InputContainer = styled.div`
   position: relative;

@@ -22,16 +22,26 @@ export default Header;
 const HeaderMain = styled.div`
   width: 36%;
   margin: auto;
-  min-width: 480px;
+  @media (max-width: 793px) {
+    width: 90%;
+  }
 `;
 const DivA = styled.div``;
 const Heading = styled.h1`
   font-weight: 650;
+  @media (max-width: 793px) {
+    font-size: large;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
 `;
 const SubHeading = styled.p`
   font-size: 18px;
   color: #000000;
   margin-top: -15px;
+  @media (max-width: 793px) {
+    font-size: 15px;
+  }
 `;
 const StyledLink = styled.a`
   text-decoration: none;
