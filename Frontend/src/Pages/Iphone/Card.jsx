@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const ProductCard = ({ product }) => {
+const Card = ({ product }) => {
   const navigate = useNavigate();
   return (
     <Div>
@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
         <Image src={product.image} alt="Rihanna" />
         <DetailsB>
           <TitleB>{product.price}</TitleB>
-          <Button onClick={() => navigate(`products/${product._id}`)}>
+          <Button onClick={() => navigate(`/iphone/${product._id}`)}>
             Buy
           </Button>
         </DetailsB>
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default Card;
 const Div = styled.div`
   padding: 3rem 0;
 `;
@@ -53,7 +53,7 @@ const DetailsB = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
 `;
 const Button = styled.button`
   border: none;
