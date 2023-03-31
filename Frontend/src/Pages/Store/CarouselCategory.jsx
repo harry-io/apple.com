@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 //
 //
 //
@@ -66,6 +67,7 @@ function SamplePrevArrow(props) {
 //
 
 const CarouselCategory = () => {
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     infinite: false,
@@ -75,6 +77,26 @@ const CarouselCategory = () => {
     dots: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
   return (
     <CarouselCategoryMain>
@@ -83,6 +105,7 @@ const CarouselCategory = () => {
           {/*  */}
           <Div>
             <Image
+              onClick={() => navigate("/mac")}
               src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-14-16-mac-nav-202301?wid=200&hei=130&fmt=png-alpha&.v=1670959891635"
               alt="Mac"
             />
@@ -90,6 +113,7 @@ const CarouselCategory = () => {
           </Div>
           <Div>
             <Image
+              onClick={() => navigate("/iphone")}
               src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-iphone-nav-202209_GEO_US?wid=200&hei=130&fmt=png-alpha&.v=1661027785546"
               alt="iPhone"
             />
@@ -97,6 +121,7 @@ const CarouselCategory = () => {
           </Div>
           <Div>
             <Image
+              onClick={() => navigate("/ipad")}
               src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-ipad-nav-202210?wid=200&hei=130&fmt=png-alpha&.v=1664912135437"
               alt="iPad"
             />
@@ -104,6 +129,7 @@ const CarouselCategory = () => {
           </Div>
           <Div>
             <Image
+              onClick={() => navigate("/watch")}
               src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-watch-nav-202303?wid=200&hei=130&fmt=png-alpha&.v=1677701613598"
               alt="Apple Watch"
             />
@@ -176,11 +202,19 @@ const Div = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  transition: 0.6s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 const Image = styled.img`
   width: 80%;
+  cursor: pointer;
 `;
 const Title = styled.p`
   font-size: 15px;
   font-weight: 600;
+  width: 100%;
+  text-align: center;
+  margin-left: -15px;
 `;

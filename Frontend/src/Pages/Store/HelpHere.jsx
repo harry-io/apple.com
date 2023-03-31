@@ -60,6 +60,9 @@ const HelpHereMain = styled.div`
   margin: auto;
   max-width: 1248px;
   margin-top: 2.5rem;
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
 `;
 const HeaderMainA = styled.div`
   width: 100%;
@@ -84,6 +87,9 @@ const HelpHereDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 const HelpHereDivA = styled.div`
   position: relative;
@@ -124,9 +130,13 @@ const Comment = styled.p`
   margin: auto;
   font-size: 1.7rem;
   font-weight: 600;
+  @media (max-width: 1024px) {
+    font-size: 4vw;
+  }
 `;
 //
 const HelpHereDivB = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
@@ -166,4 +176,10 @@ const TitleB = styled.p`
   margin: auto;
   font-size: 1.7rem;
   font-weight: 600;
+  @media (min-width: 1034px) {
+    font-size: 2vw;
+  }
+  @media (max-width: 1034px) {
+    font-size: 3vw;
+  }
 `;

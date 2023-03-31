@@ -18,6 +18,10 @@ export const Navbar = () => {
     setSelect("");
   });
 
+  $(document).on("click", ".Navham", () => {
+    $("header").toggleClass("active");
+  });
+
   //
   $(document).on("mouseout", ".showDown,.headerDropDown", function () {
     $(".headerDropDown").removeClass("active");
@@ -37,6 +41,7 @@ export const Navbar = () => {
   return (
     <>
       <header>
+        <div className="Navham"></div>
         <div className="icons">
           <Link>
             <i className="fa fa-apple"></i>

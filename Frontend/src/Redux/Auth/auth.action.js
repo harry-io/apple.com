@@ -32,9 +32,9 @@ export const signupSuccess = () => {
 export const signupAction = (body, navigate) => (dispatch) => {
   dispatch(authRequest());
   axios
-    .post(`${process.env.BASE_URL}/users/signup`, body)
+    .post(`https://back-ened-bolt.onrender.com/users/signup`, body)
     .then((res) => {
-      toast(res.data.message);
+      // toast(res.data.message);
       navigate("/login");
     })
     .catch((error) => toast.error(error.response.data.message));
@@ -43,12 +43,12 @@ export const signupAction = (body, navigate) => (dispatch) => {
 export const loginAction = (body, navigate) => (dispatch) => {
   dispatch(authRequest());
   axios
-    .post(`${process.env.BASE_URL}/users/login`, body)
+    .post(`https://back-ened-bolt.onrender.com/users/login`, body)
     .then((res) => {
       dispatch(loginSuccess(res.data.token));
       setData("token_bolt", res.data.token);
-      toast(res.data.message);
+      toast(res.data.msg);
       navigate("/");
     })
-    .catch((error) => toast(error.response.data.message));
+    .catch((error) => toast("Wrong Credentials !"));
 };

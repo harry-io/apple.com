@@ -1,65 +1,69 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   return (
-    <ProductCardMain>
-      <Image src={product.image} alt={product.title} />
-      <DetailsContainer>
-        <Title>{product.title}</Title>
-        <Comment>{product.comment}</Comment>
-        <Price>{product.price}</Price>
-      </DetailsContainer>
-    </ProductCardMain>
+    <Div>
+      <DivB>
+        <DetailsA>
+          <Title>{product.title}</Title>
+        </DetailsA>
+        <Image src={product.image} alt="Rihanna" />
+        <DetailsB>
+          <TitleB>{product.price}</TitleB>
+          <Button onClick={() => navigate(`products/${product._id}`)}>
+            Buy
+          </Button>
+        </DetailsB>
+      </DivB>
+    </Div>
   );
 };
 
 export default ProductCard;
-// STYLED CSS
-const ProductCardMain = styled.div`
-  position: relative;
-  border-radius: 15px;
+const Div = styled.div`
+  padding: 3rem 0;
+`;
+const DivB = styled.div`
+  width: 80%;
+  height: 420px;
+  margin: auto;
+  padding: 1rem;
   transition: 0.6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
   &:hover {
     transform: scale(1.02);
   }
 `;
 const Image = styled.img`
   width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 `;
-const DetailsContainer = styled.div`
-  width: 90%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  margin: auto;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: center;
-  text-align: left;
-  top: 8px;
-  left: 16px;
-  padding: 10px 0;
-  border-radius: 10px;
-  background-color: #ffffff6a;
-`;
-const Title = styled.p`
-  width: 90%;
-  margin: auto;
-  font-size: xx-small;
-`;
-
-const Comment = styled.p`
-  width: 90%;
-  margin: auto;
-  font-size: 1.7rem;
+const DetailsA = styled.div``;
+const Title = styled.h2`
   font-weight: 600;
 `;
-const Price = styled.p`
-  width: 90%;
-  margin: auto;
+const DetailsB = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+`;
+const Button = styled.button`
+  border: none;
+  background: #0071e3;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 780px;
+  cursor: pointer;
+  font-size: 17px;
+`;
+const TitleB = styled.p`
   font-size: small;
 `;
