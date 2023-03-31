@@ -1,0 +1,313 @@
+#payment.payment {
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+  #abc.abc {
+    p {
+      font-size: 12px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+      border-bottom: 1px solid #e1d7d7;
+      align-items: center;
+    }
+    .method {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      margin: auto;
+    }
+    .payinfull {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      .payinfull_heading {
+        text-align: left;
+      }
+      .collection {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .logos {
+          .banks {
+            div {
+              border: 1px solid #e1d7d7;
+              align-items: center;
+              padding: 10px;
+              cursor: pointer;
+            }
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: max-content max-content max-content;
+            padding: 15px;
+            background: white;
+            gap: 20px;
+            img {
+              height: 45px;
+              width: 45px;
+              // object-fit: contain;
+            }
+            p {
+              font-weight: 600;
+            }
+          }
+          .additional_banks {
+            width: 100%;
+            select {
+              width: 90%;
+              padding: 15px;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .card {
+        border-radius: 20px;
+        padding: 0 20px;
+        text-align: left;
+        background: white;
+        width: 100%;
+        cursor: pointer;
+        &:focus {
+          border: 3px solid #0071e3;
+        }
+      }
+      .netbanking {
+        border-radius: 20px;
+        padding: 0 20px;
+        text-align: left;
+        background: white;
+        width: 100%;
+        cursor: pointer;
+
+        &:focus {
+          border: 3px solid #0071e3;
+        }
+      }
+    }
+    .Payovertime {
+      text-align: left;
+      width: 40%;
+      .Payovertime_heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        p {
+          font-size: 12px;
+        }
+      }
+      .Payovertime_card {
+        border-radius: 20px;
+        padding: 0 20px;
+        text-align: left;
+        background: white;
+        width: 100%;
+        cursor: pointer;
+        &:focus {
+          border: 3px solid #0071e3;
+        }
+      }
+    }
+    .pan {
+      width: 80%;
+      margin: 20px auto;
+      text-align: left;
+      border-bottom: 1px solid #e1d7d7;
+      border-top: 1px solid #e1d7d7;
+      padding: 10px 0px;
+      .pan_input {
+        display: grid;
+        grid-template-columns: repeat(2, 40%);
+        margin: 10px 0px;
+        input {
+          padding: 15px;
+          border-radius: 4px;
+          border: 1px solid grey;
+          padding: 10px;
+          border-radius: 8px;
+          outline-color: #0071e3;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        p {
+          font-size: 12px;
+          margin: 0;
+        }
+      }
+    }
+
+    .review_button {
+      width: 80%;
+      margin: auto;
+      display: block;
+      text-align: left;
+      button {
+        // background-image: linear-gradient(to right, #4e4e4e 0%, #000000 51%, #474343 100%);
+        background-image: linear-gradient(-45deg, blue, skyblue);
+
+        /* margin: 10px; */
+        padding: 20px;
+        text-align: center;
+        /* text-transform: uppercase; */
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 8px;
+        /* display: block; */
+        border: none;
+        font-weight: 600;
+        width: 350px;
+      }
+      button:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .atm {
+      text-align: left;
+      width: 100%;
+      margin: 10px auto;
+      .card_number {
+        input {
+          padding: 10px;
+          width: 100%;
+          border-radius: 8px;
+          outline-color: #0071e3;
+        }
+      }
+      .exp_cvv {
+        input {
+          padding: 10px;
+          width: 50%;
+          border-radius: 8px;
+          outline-color: #0071e3;
+        }
+      }
+      .atm_inp {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .billing {
+        border-top: 1px solid #e1d7d7;
+        margin-top: 10px;
+      }
+    }
+  }
+  .popup {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+
+    .editbag,
+    .deliverson,
+    .deliversto,
+    .paymentchange {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e1d7d7;
+      text-align: left;
+      padding: 10px;
+    }
+    .review {
+      text-align: left;
+      padding: 10px;
+    }
+    .totalprice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      padding: 10px;
+    }
+    .subtotal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      padding: 0 10px;
+    }
+    .shipping {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      border-bottom: 1px solid #e1d7d7;
+      padding: 0 10px;
+    }
+    .ordertotal {
+      border-bottom: 1px solid;
+    }
+    .orderDetails {
+      border-bottom: 1px solid;
+    }
+    .closepopup{
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 20px;
+    }
+  }
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  #payment.payment {
+    #abc.abc {
+      .payinfull,
+      .Payovertime {
+        width: 100%;
+      }
+      .pan_input {
+        grid-template-columns: 100%;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media all and (max-width: 768px) {
+  #payment.payment {
+    #abc.abc {
+      .payinfull,
+      .Payovertime {
+        width: 100%;
+      }
+      .pan_input {
+        grid-template-columns: 100% !important;
+        gap: 20px;
+      }
+
+      .review_button {
+        button {
+          width: 100%;
+        }
+      }
+      .header {
+        font-size: 10px;
+      }
+      .lead {
+        font-size: 12px;
+      }
+      .collection {
+        .logos {
+          .additional_banks {
+            // width: 100px;
+            select {
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
