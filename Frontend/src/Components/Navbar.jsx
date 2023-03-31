@@ -9,7 +9,7 @@ import { NavbarBag } from "./NavbarBag";
 export const Navbar = () => {
   const [select, setSelect] = useState("");
 
-  $(document).on("mouseover", ".showDown,.headerDropDown", function () {
+  $(document).on("mouseover", ".showDown", function () {
     $(".headerDropDown").addClass("active");
     // setSelect("");
   });
@@ -43,8 +43,8 @@ export const Navbar = () => {
       <header>
         <div className="Navham"></div>
         <div className="icons">
-          <Link>
-            <i className="fa fa-apple"></i>
+          <Link to="/">
+            <i className="fa fa-bolt"></i>
           </Link>
           <Link className="showDown">Store</Link>
           <Link className="showDown">Mac</Link>

@@ -52,6 +52,27 @@ header > .icons {
   /* border: 1px solid white; */
 }
 
+header > .icons > a:first-child {
+  /* color: black; */
+  height: 40px;
+  width: 40px;
+  /* padding: 0 10px; */
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 5px rgba(0, 0, 0, 0.3);
+  /* background: white; */
+  color: white;
+}
+header > .icons > a:last-child {
+  /* background-color: red; */
+  /* height: 20px; */
+  display: flex;
+  align-items: center;
+}
 header > .icons > a {
   text-decoration: none;
   color: white;
