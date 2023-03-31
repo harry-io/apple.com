@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../Redux/Products/products.action";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-import Card from "../../Components/Card";
+import Card from "./Card";
 import WaysToSave from "./WaysToSave";
 import AppleExperience from "../Store/AppleExperience";
 //
@@ -174,7 +174,11 @@ const ParaA = styled.h1`
   }
 `;
 const ParaB = styled.p`
+  font-size: 30px;
   color: #6e6e73;
   display: inline;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 `;

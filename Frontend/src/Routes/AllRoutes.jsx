@@ -32,6 +32,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Store />
+            <Footer />
           </>
         }
       />
@@ -41,6 +42,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Iphone />
+            <Footer />
           </>
         }
       />
@@ -50,6 +52,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Watch />
+            <Footer />
           </>
         }
       />
@@ -59,6 +62,7 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Mac />
+            <Footer />
           </>
         }
       />
@@ -68,13 +72,15 @@ const AllRoutes = () => {
           <>
             <Navbar />
             <Ipad />
+            <Footer />
           </>
         }
       />
-      
-
-      <Route path="/iphone/:id" element={<SinglePage/>} />
-
+      <Route path="store/products/:id" element={<SinglePage />} />
+      <Route path="/iphone/:id" element={<SinglePage />} />
+      <Route path="/ipad/:id" element={<SinglePage />} />
+      <Route path="/mac/:id" element={<SinglePage />} />
+      <Route path="/watch/:id" element={<SinglePage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />

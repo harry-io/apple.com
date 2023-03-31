@@ -150,15 +150,16 @@ const HeaderMainA = styled.div`
   margin-top: 3rem;
   @media (max-width: 768px) {
     width: 95%;
+    justify-content: center;
   }
 `;
 const ParaA = styled.h1`
   display: flex;
   align-items: center;
   color: black;
-  font-size: 30px;
   display: inline;
   font-weight: 600;
+  font-size: 30px;
   @media (max-width: 768px) {
     font-size: 25px;
   }
@@ -167,4 +168,8 @@ const ParaB = styled.p`
   color: #6e6e73;
   display: inline;
   font-weight: 600;
+  font-size: 30px;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 `;

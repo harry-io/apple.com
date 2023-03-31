@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ product }) => {
-  console.log(product);
+  const navigate = useNavigate();
   return (
     <Div>
       <DivB>
@@ -12,7 +13,7 @@ const Card = ({ product }) => {
         <Image src={product.image} alt="Rihanna" />
         <DetailsB>
           <TitleB>{product.price}</TitleB>
-          <Button>Buy</Button>
+          <Button onClick={() => navigate(`/watch/${product._id}`)}>Buy</Button>
         </DetailsB>
       </DivB>
     </Div>
@@ -50,7 +51,7 @@ const DetailsB = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
 `;
 const Button = styled.button`
   border: none;
