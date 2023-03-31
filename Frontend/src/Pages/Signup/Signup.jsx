@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signupAction } from "../../Redux/Auth/auth.action";
 import { GrFormViewHide } from "react-icons/gr";
-import { BiShowAlt, BiMessageAltError } from "react-icons/bi";
+import { BiShowAlt, BiMessageAltError, BiError } from "react-icons/bi";
 import { toast } from "react-hot-toast";
 
 const Signup = () => {
@@ -39,30 +39,34 @@ const Signup = () => {
     //
     //
     if (password.length < 7) {
-      toast.error("Password is too short !", {
+      toast.error("Password is short !", {
         icon: (
-          <BiMessageAltError
-            style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+          <BiError
+            style={{ color: "yellow", fontSize: "1.5rem", fontWeight: "800" }}
           />
         ),
         style: {
           borderRadius: "50px",
-          background: "#817e7e93",
-          color: "white",
+          background: "#989898",
+          color: "#ffffff",
+          padding: "1rem 1.5rem",
+          fontWeight: "600",
         },
       });
     } else {
       if (password !== confirmPassword) {
         toast.error("Passwords are not matching !", {
           icon: (
-            <BiMessageAltError
-              style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+            <BiError
+              style={{ color: "yellow", fontSize: "1.5rem", fontWeight: "800" }}
             />
           ),
           style: {
             borderRadius: "50px",
-            background: "#817e7e93",
-            color: "white",
+            background: "#989898",
+            color: "#ffffff",
+            padding: "1rem 1.5rem",
+            fontWeight: "600",
           },
         });
       } else {
@@ -71,6 +75,7 @@ const Signup = () => {
         setAge("");
         setConfirmPassword("");
         setAge("");
+        setPassword("");
         setCountry("");
         //
         dispatch(signupAction(body, navigate));

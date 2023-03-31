@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../Redux/Products/products.action";
+import Loader from "../../Components/Loader/Loader";
 //
 
 //
@@ -25,6 +26,7 @@ const Products = () => {
         </ParaA>
       </HeaderMainA>
       {/* PRODUCTS */}
+      {isLoading && <Loader />}
       <ProductsContainer>
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
