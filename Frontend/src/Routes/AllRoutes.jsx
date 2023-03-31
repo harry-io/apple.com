@@ -8,6 +8,7 @@ import Iphone from "../Pages/Iphone/Iphone";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import Store from "../Pages/Store/Store";
+import Dashboard from "../Components/Admin/Dashboard";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -26,6 +27,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/admin/dashboard" element={<Dashboard />} />
     </Routes>
   );
 };
