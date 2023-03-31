@@ -6,21 +6,21 @@ export const NavbarList = () => {
     <>
       <div className="navList">
         <p>Shop</p>
-        <Link>Shop the Latest</Link>
-        <Link>Mac</Link>
-        <Link>iPad</Link>
-        <Link>iPhone</Link>
-        <Link>Apple Watch</Link>
-        <Link>Accessories</Link>
+        <Link to="/store">Shop the Latest</Link>
+        <Link to="/mac">Mac</Link>
+        <Link to="/ipad">iPad</Link>
+        <Link to="/iphone">iPhone</Link>
+        <Link to="">Apple Watch</Link>
+        <Link to="">Accessories</Link>
       </div>
       {/*  */}
 
       <div className="navList">
         <p>Quick Links</p>
-        <Link>Find a Store</Link>
+        <Link to="/store">Find a Store</Link>
         <Link>Order Status</Link>
         <Link>Financing</Link>
-        <Link>Apple Trade In</Link>
+        <Link to="/iphone">Apple Trade In</Link>
       </div>
       {/*  */}
       {/*  */}
