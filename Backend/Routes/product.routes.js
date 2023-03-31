@@ -2,7 +2,74 @@ const express = require("express")
 const { produtModel } = require("../Models/products.model")
 const productRouter =  express.Router()
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     NewProduct:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           description: product name.
+ *         category:
+ *           type: string
+ *           description: category of product.
+ *         image:
+ *           type: string
+ *           description: link of product image.
+ *         price:
+ *           type: integer
+ *           description: price of product.
+ *     RegResult:
+ *       type: object
+ *       properties:
+ *         msg:
+ *           type: string
+ *           description: message
+ *           example: User Registered Succesfully. 
+ *     LogReq:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           description: message
+ *           example: Albin@gmail.com.
+ *         password:
+ *           type: string
+ *           description: message
+ *           example: Albin123.
+ *     AddResponse:
+ *       type: object
+ *       properties:
+ *         msg:
+ *           type: string
+ *           description: message
+ *           example: Product Added Succesfully.
+ */
 
+/**
+ * @swagger
+ * /products/add:
+ *  post:
+ *    summary: To post details of new user/admin.
+ *    tags: [Products]
+ *    requestBody:
+ *     required: true
+ *     content:
+ *       application/json:
+ *         schema:
+ *            $ref: '#/components/schemas/NewProduct' 
+ *    responses:
+ *     200:
+ *       description: The user was successfully registered
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/AddResponse'
+ *     400:
+ *       description: Bad Request      
+ */
 
 
 //CREATE
@@ -15,6 +82,27 @@ productRouter.post("/add",async(req,res)=>{
     res.status(400).send({error:error.message})
    }
 })
+
+
+
+/**
+ * @swagger
+ * /products/:
+ *  get:
+ *    summary: To get  all products.
+ *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: List of all Products
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/NewProduct'
+ *     400:
+ *       description: Bad Request      
+ */
 
 
 

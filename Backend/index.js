@@ -14,8 +14,52 @@ require("dotenv").config()
 
 
 
+// app.js
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerDefinition = {
+    openapi: '3.0.0',
+    info: {
+      title: 'Express API for BOLT',
+      version: '1.0.0',
+      description:
+        'This is a BOLT API application made with Express. It retrieves data from BOLT-BACKENED.',
+      contact: {
+        name: 'BOLT',
+        url: 'https://jsonplaceholder.typicode.com',
+      },
+    },
+    servers: [
+      {
+        url: 'http://localhost:7913',
+        description: 'Development server',
+      },
+    ],
+
+    components:{
+    securitySchemes: {
+        bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT'  
+        }
+      }
+    }
+  };
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./Routes/*.js']
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
+
+  
 
 
 app.use(express.json())
