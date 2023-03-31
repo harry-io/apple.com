@@ -11,6 +11,7 @@ const Store = () => {
     <StoreMain>
       <Header />
       <CarouselCategory />
+
       <Products />
       {/*  */}
       <HelpHere />

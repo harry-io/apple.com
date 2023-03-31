@@ -8,6 +8,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import Card from "./Card";
 import WaysToSave from "../Iphone/WaysToSave";
 import AppleExperience from "../Store/AppleExperience";
+import Loader from "../../Components/Loader/Loader";
 
 //
 //
@@ -120,6 +121,7 @@ const Ipad = () => {
         </ParaA>
       </HeaderMainA>
       {/*  */}
+      {isLoading && <Loader />}
       <CarouselWrapper>
         <SlickCarousel {...settings} style={{ position: "relative" }}>
           {products.length > 0 &&
