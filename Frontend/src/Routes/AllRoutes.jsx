@@ -15,7 +15,12 @@ import Store from "../Pages/Store/Store";
 import Dashboard from "../Components/Admin/Dashboard";
 
 import Watch from "../Pages/Watch/Watch";
+
 import PrivateRoute from "./PrivateRoute";
+
+import Shipping from "../Pages/Address/Shipping";
+import Payment from "../Pages/Payment/Payment";
+
 
 const AllRoutes = () => {
   return (
@@ -135,6 +140,8 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/shipping" element={<Shipping />} />
+      <Route path="/payment" element={<Payment />} />
     </Routes>
   );
 };
