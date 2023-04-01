@@ -1,12 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const NavbarSearch = () => {
+  const [keyword, setKeyword] = useState("");
+  //
+  //
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate(`/search/${keyword}`);
+  };
   return (
     <div className="searchBx">
-      <form>
+      <form onSubmit={handleSubmit}>
         <i className="fa fa-search"></i>
-        <input autoFocus type="search" placeholder="Search apple.com" />
+        <input
+          autoFocus
+          type="search"
+          placeholder="Search bolt.com"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
       </form>
       <div className="searchOptions">
         <p>Quice Links</p>
