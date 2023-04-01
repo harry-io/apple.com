@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 import { NavbarList } from "./NavbarList";
 import { NavbarBag } from "./NavbarBag";
+import { NavbarSearch } from "./NavbarSearch";
 
 export const Navbar = () => {
   const [select, setSelect] = useState("");
 
-  $(document).on("mouseover", ".showDown", function () {
+  $(document).on("mouseover", ".showDown,.headerDropDown", function () {
     $(".headerDropDown").addClass("active");
     // setSelect("");
   });
@@ -22,29 +23,36 @@ export const Navbar = () => {
     $("header").toggleClass("active");
   });
 
+  $(document).on("click", ".naveLinks", function () {
+    $(".headerDropDown").removeClass("active");
+    $("header").removeClass("active");
+  });
+
   //
   $(document).on("mouseout", ".showDown,.headerDropDown", function () {
     $(".headerDropDown").removeClass("active");
     // setSelect("");
   });
 
+  // for cart section in navbars
   const handleSelect = () => {
-    if (select == "bag") {
-      $(".headerDropDown").removeClass("active");
-      setSelect("");
-    } else {
-      $(".headerDropDown").addClass("active");
-      setSelect("bag");
-    }
+    setSelect("bag");
+    $(".headerDropDown").toggleClass("active");
   };
+  // For search section in navbar
+  function handleSearch() {
+    setSelect("search");
+    $(".headerDropDown").toggleClass("active");
+  }
 
   return (
     <>
-      <header>
+      <header className="header">
         <div className="Navham"></div>
         <div className="icons">
-          <Link to="/">
-            <i className="fa fa-bolt"></i>
+          <Link className="naveLinks" to="/">
+            {/* <i className="fa fa-bolt"></i> */}
+            <img src="https://i.ibb.co/SnNM4tm/Logo.png" alt="" />
           </Link>
           <Link className="showDown">Store</Link>
           <Link className="showDown">Mac</Link>
@@ -55,7 +63,7 @@ export const Navbar = () => {
           <Link className="showDown">Entertainment</Link>
           <Link className="showDown">Accessories</Link>
           <Link className="showDown">Support</Link>
-          <Link>
+          <Link onClick={handleSearch}>
             <i className="fa fa-search"></i>
           </Link>
           <Link onClick={handleSelect}>
@@ -72,7 +80,10 @@ export const Navbar = () => {
       </header>
 
       <div className="headerDropDown">
-        {select ? <NavbarBag /> : <NavbarList />}
+        {/* {select ? <NavbarBag /> : <NavbarList />} */}
+        {select == "bag" ? <NavbarBag /> : ""}
+        {select == "" ? <NavbarList /> : ""}
+        {select == "search" ? <NavbarSearch /> : ""}
       </div>
     </>
   );

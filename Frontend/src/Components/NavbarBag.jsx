@@ -41,7 +41,7 @@ export const NavbarBag = () => {
           <Link>
             <i className="fa fa-user-o"></i> Account
           </Link>
-          <Link>
+          <Link to="/login">
             <i className="fa fa-sign-in"></i> Sign in
           </Link>
         </div>

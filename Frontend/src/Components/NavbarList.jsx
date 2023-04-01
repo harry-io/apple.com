@@ -1,37 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 
 export const NavbarList = () => {
   return (
     <>
       <div className="navList">
         <p>Shop</p>
-        <Link to="/store">Shop the Latest</Link>
-        <Link to="/mac">Mac</Link>
-        <Link to="/ipad">iPad</Link>
-        <Link to="/iphone">iPhone</Link>
-        <Link to="">Apple Watch</Link>
-        <Link to="">Accessories</Link>
+        <Link className="naveLinks" to="/store">
+          Shop the Latest
+        </Link>
+        <Link className="naveLinks" to="/mac">
+          Mac
+        </Link>
+        <Link className="naveLinks" to="/ipad">
+          iPad
+        </Link>
+        <Link className="naveLinks" to="/iphone">
+          iPhone
+        </Link>
+        <Link className="naveLinks" to="">
+          Apple Watch
+        </Link>
+        <Link className="naveLinks" to="">
+          Accessories
+        </Link>
       </div>
       {/*  */}
 
       <div className="navList">
         <p>Quick Links</p>
-        <Link to="/store">Find a Store</Link>
-        <Link>Order Status</Link>
-        <Link>Financing</Link>
-        <Link to="/iphone">Apple Trade In</Link>
+        <Link className="naveLinks" to="/store">
+          Find a Store
+        </Link>
+        <Link className="naveLinks">Order Status</Link>
+        <Link className="naveLinks">Financing</Link>
+        <Link className="naveLinks" to="/iphone">
+          Apple Trade In
+        </Link>
       </div>
       {/*  */}
       {/*  */}
 
       <div className="navList">
         <p>Shop Special Stores</p>
-        <Link>Certified Refurbished</Link>
-        <Link>Education</Link>
-        <Link>Business</Link>
-        <Link>Veterans and Military</Link>
-        <Link>Government</Link>
+        <Link className="naveLinks">Certified Refurbished</Link>
+        <Link className="naveLinks">Education</Link>
+        <Link className="naveLinks">Business</Link>
+        <Link className="naveLinks">Veterans and Military</Link>
+        <Link className="naveLinks">Government</Link>
       </div>
       {/*  */}
     </>
