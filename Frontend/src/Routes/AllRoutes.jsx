@@ -20,7 +20,7 @@ import PrivateRoute from "./PrivateRoute";
 
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
-
+import SearchPage from "../Pages/SearchPage/SearchPage";
 
 const AllRoutes = () => {
   return (
@@ -35,7 +35,18 @@ const AllRoutes = () => {
           </>
         }
       />
-
+      <Route
+        path="/search/:query"
+        element={
+          <>
+            <PrivateRoute>
+              <Navbar />
+              <SearchPage />
+              <Footer />
+            </PrivateRoute>
+          </>
+        }
+      />
       <Route
         path="/store"
         element={
