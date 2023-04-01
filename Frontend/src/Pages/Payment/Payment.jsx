@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../../Styles/Payment.scss";
 
+const address = JSON.parse(localStorage.getItem("shipping"));
+console.log(address);
+
 function Payment() {
   const [card, setCards] = useState("none");
   const [netbanking, setNetbanking] = useState("none");
@@ -66,8 +69,12 @@ function Payment() {
                       <input type="number" placeholder="Card number" />
                     </div>
                     <div className="exp_cvv">
-                      <input type="text" placeholder="Expiration MM/YY" />
-                      <input type="text" placeholder="CVV" />
+                      <input
+                        type="text"
+                        placeholder="Expiration MM/YY"
+                        required
+                      />
+                      <input type="text" placeholder="CVV" required />
                     </div>
                   </div>
                 </div>
@@ -79,15 +86,22 @@ function Payment() {
                     <div className="address">
                       <span>
                         {" "}
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" name="" id="" required />
                         use my billing address
                       </span>
                       <br />
-                      <span>
-                        5th Floor, SJR Primus, 20th Main Rd, next to Raheja
-                        Arcade, 5th Block, Koramangala, Bengaluru, Karnataka
-                        560034
-                      </span>
+                      {address.map((item) => (
+                        <span>
+                          <b>Street no:410</b>
+                          <b>
+                            {item.address1},{item.address2}
+                          </b>
+                          <b>{item.city}</b>
+                          <b>{item.pincode}</b>
+                          <b>{item.statename}</b>
+                          <b>{item.country}</b>
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -178,8 +192,12 @@ function Payment() {
                     <input type="number" placeholder="Card number" />
                   </div>
                   <div className="exp_cvv">
-                    <input type="text" placeholder="Expiration MM/YY" />
-                    <input type="text" placeholder="CVV" />
+                    <input
+                      type="text"
+                      placeholder="Expiration MM/YY"
+                      required
+                    />
+                    <input type="text" placeholder="CVV" required />
                   </div>
                 </div>
               </div>
@@ -191,15 +209,22 @@ function Payment() {
                   <div className="address">
                     <span>
                       {" "}
-                      <input type="checkbox" name="" id="" />
+                      <input type="checkbox" name="" id="" required />
                       use my billing address
                     </span>
                     <br />
-                    <span>
-                      5th Floor, SJR Primus, 20th Main Rd, next to Raheja
-                      Arcade, 5th Block, Koramangala, Bengaluru, Karnataka
-                      560034
-                    </span>
+                    {address.map((item) => (
+                      <span>
+                        <b>Street no:410</b>
+                        <b>
+                          {item.address1},{item.address2}
+                        </b>
+                        <b>{item.city}</b>
+                        <b>{item.pincode}</b>
+                        <b>{item.statename}</b>
+                        <b>{item.country}</b>
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -210,7 +235,7 @@ function Payment() {
           <div>Enter your Tax information</div>
           <div className="pan_input">
             <div>
-              <input type="text" placeholder="Enter PAN number" />
+              <input type="text" placeholder="Enter PAN number" required />
             </div>
             <div>
               <p style={{ padding: "0 20px" }}>
@@ -234,9 +259,89 @@ function Payment() {
         <div className="review_button">
           <button>Review Your Order</button>
         </div>
+        <div className="chat">
+          <p>
+            Need Some help?<a href="#">Chat now</a> or call 401966
+          </p>
+        </div>
+
+        <div>
+          <div className="faq">
+            <h3>FAQ for Payment</h3>
+            <h3>^</h3>
+          </div>
+        </div>
+        <div className="footerDesc">
+          <div>
+            <p>
+              ◊ Monthly pricing is after purchase using EMI with qualifying
+              cards at 14% pa over a 6 month tenure. Monthly pricing is rounded
+              to the nearest rupee. Exact pricing will be provided by your bank,
+              subject to your bank’s terms and conditions.
+            </p>
+          </div>
+          <div>
+            <p>Representative example:</p>
+            <p>
+              Based on purchase of ₹79900. Total amount payable ₹83194 paid over
+              6 months as 6 monthly payments of ₹13866 at an interest rate of
+              14% pa. Total interest paid to bank: ₹3294.
+            </p>
+            <p>
+              § No Cost EMI is available with the purchase of an eligible
+              product made using qualifying cards on 3- or 6-month tenures from
+              most leading banks. Minimum order spend applies as per your card
+              issuing bank threshold. Offer cannot be combined with Apple Store
+              for Education or Corporate Employee Purchase Plan pricing. Card
+              eligibility is subject to terms and conditions between you and
+              your card–issuing bank. Offer may be revised or withdrawn at any
+              time without any prior notice. Terms & Conditions apply.
+            </p>
+          </div>
+          <div>
+            <p>Representative example:</p>
+            <p>
+              Based off a 6 month tenure. ₹79900 total cost includes 15% pa and
+              No Cost EMI savings of ₹3380, paid over 6 months as 6 monthly
+              payments of ₹13317.
+            </p>
+            <p>
+              1. Trade-in values will vary based on the condition, year, and
+              configuration of your eligible trade-in device. Not all devices
+              are eligible for credit. You must be at least 18 years old to be
+              eligible to trade in for credit or for an Apple Gift Card.
+              Trade-in value may be applied toward qualifying new device
+              purchase, or added to an Apple Gift Card. Actual value awarded is
+              based on receipt of a qualifying device matching the description
+              provided when estimate was made. Sales tax may be assessed on full
+              value of a new device purchase. In-store trade-in requires
+              presentation of a valid photo ID (local law may require saving
+              this information). Offer may not be available in all stores, and
+              may vary between in-store and online trade-in. Some stores may
+              have additional requirements. Apple or its trade-in partners
+              reserve the right to refuse or limit quantity of any trade-in
+              transaction for any reason. More details are available from
+              Apple’s trade-in partner for trade-in and recycling of eligible
+              devices. Restrictions and limitations may apply.
+            </p>
+            <p>
+              2. Special pricing available to qualified customers. To learn more
+              about how to start qualifying for special pricing, talk to an
+              Apple Specialist in a store or give us a call on 000800 040 1966.
+            </p>
+          </div>
+          <div>
+            <p>
+              Apple uses industry-standard encryption to protect the
+              confidentiality of your personal information.
+            </p>
+          </div>
+        </div>
       </div>
       <div className="popup" style={{ display: popup }}>
-        <div className="closepopup" onClick={closepopup}>X</div>
+        <div className="closepopup" onClick={closepopup}>
+          X
+        </div>
         <div className="ordertotal">
           <h2>Your Order Total</h2>
         </div>
@@ -268,8 +373,19 @@ function Payment() {
         </div>
         <div className="deliversto">
           <h4>
-            Delivery to: <br /> 5th Floor, SJR Primus, 20th Main Rd, next to
-            Raheja Arcade,
+            Delivery to: <br />{" "}
+            {address.map((item) => (
+              <span>
+                <b>Street no:410</b>
+                <b>
+                  {item.address1},{item.address2}
+                </b>
+                <b>{item.city}</b>
+                <b>{item.pincode}</b>
+                <b>{item.statename}</b>
+                <b>{item.country}</b>
+              </span>
+            ))}
           </h4>
           <a href="#">Change</a>
         </div>

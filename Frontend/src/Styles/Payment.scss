@@ -203,6 +203,22 @@
         margin-top: 10px;
       }
     }
+    .faq {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: space-between;
+      border-bottom: 1px solid #e1d7d7;
+      border-top: 1px solid #e1d7d7;
+      padding: 10px 0;
+    }
+    .footerDesc {
+      background-color: rgb(255, 252, 252);
+      text-align: left;
+      width: 99%;
+      margin: auto;
+      padding: 20px 20px;
+    }
   }
   .popup {
     width: 80%;
@@ -252,13 +268,12 @@
     .orderDetails {
       border-bottom: 1px solid;
     }
-    .closepopup{
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 20px;
+    .closepopup {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 20px;
     }
   }
-
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
