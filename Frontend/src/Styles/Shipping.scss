@@ -16,7 +16,7 @@
     margin: auto;
     text-align: left;
     input {
-    //   width: 30%;
+      //   width: 30%;
       padding: 15px;
       margin: 3px;
       border-radius: 8px;
@@ -74,25 +74,24 @@
 @media all and (min-width: 768px) and (max-width: 1024px) {
   #shipping {
     .actualform {
-        .data{
-            .addressinfo{
-                width: 100%;
-            }
-            .contactinfo{
-                width: 100%;
-            }
-            .shipp_button{
-                width: 100%;
-                button{
-    
-                    width: 100%;
-                }
-            }
+      .data {
+        .addressinfo {
+          width: 100%;
         }
-
-        input{
+        .contactinfo {
+          width: 100%;
+        }
+        .shipp_button {
+          width: 100%;
+          button {
             width: 100%;
+          }
         }
+      }
+
+      input {
+        width: 100%;
+      }
       .sam {
         font-size: 14px;
       }
@@ -100,31 +99,27 @@
   }
 }
 
-
 @media all and (max-width: 768px) {
-    #shipping {
-      .actualform {
-        .data{
-            .addressinfo{
-                width: 100%;
-            }
-            .contactinfo{
-                width: 100%;
-            }
-            .shipp_button{
-                width: 100%;
-                button{
-    
-                    width: 100%;
-                }
-            }
+  #shipping {
+    .actualform {
+      .data {
+        .addressinfo {
+          width: 100%;
         }
-        
-       
-        .sam {
-          font-size: 18px;
+        .contactinfo {
+          width: 100%;
         }
-       
+        .shipp_button {
+          width: 100%;
+          button {
+            width: 100%;
+          }
+        }
+      }
+
+      .sam {
+        font-size: 18px;
       }
     }
   }
+}
