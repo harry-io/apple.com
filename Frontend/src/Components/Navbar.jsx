@@ -52,7 +52,11 @@ export const Navbar = () => {
         <div className="icons">
           <Link className="naveLinks" to="/">
             {/* <i className="fa fa-bolt"></i> */}
-            <img src="https://i.ibb.co/SnNM4tm/Logo.png" alt="" />
+            <img
+              className="nav_logo"
+              src="https://i.ibb.co/SnNM4tm/Logo.png"
+              alt="logo"
+            />
           </Link>
           <Link className="showDown">Store</Link>
           <Link className="showDown">Mac</Link>

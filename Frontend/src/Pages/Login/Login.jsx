@@ -7,12 +7,13 @@ import AuthFooter from "../../Components/AuthFooter";
 import { GrFormViewHide } from "react-icons/gr";
 import { BiShowAlt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginAction } from "../../Redux/Auth/auth.action";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   //
   const [show, setShow] = useState(false);
   //
@@ -29,7 +30,7 @@ const Login = () => {
       password,
     };
     //
-    dispatch(loginAction(body, navigate));
+    dispatch(loginAction(body, navigate, location));
   };
   return (
     <SignupMain>
