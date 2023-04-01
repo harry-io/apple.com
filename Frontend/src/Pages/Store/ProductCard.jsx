@@ -41,6 +41,9 @@ const DivB = styled.div`
   &:hover {
     transform: scale(1.02);
   }
+  @media (max-width: 768px) {
+    height: 500px;
+  }
 `;
 const Image = styled.img`
   width: 100%;
@@ -54,6 +57,10 @@ const DetailsB = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 const Button = styled.button`
   border: none;

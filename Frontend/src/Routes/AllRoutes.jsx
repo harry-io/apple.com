@@ -15,6 +15,7 @@ import Store from "../Pages/Store/Store";
 import Dashboard from "../Components/Admin/Dashboard";
 
 import Watch from "../Pages/Watch/Watch";
+import PrivateRoute from "./PrivateRoute";
 
 const AllRoutes = () => {
   return (
@@ -34,9 +35,11 @@ const AllRoutes = () => {
         path="/store"
         element={
           <>
-            <Navbar />
-            <Store />
-            <Footer />
+            <PrivateRoute>
+              <Navbar />
+              <Store />
+              <Footer />
+            </PrivateRoute>
           </>
         }
       />
@@ -44,9 +47,11 @@ const AllRoutes = () => {
         path="/iphone"
         element={
           <>
-            <Navbar />
-            <Iphone />
-            <Footer />
+            <PrivateRoute>
+              <Navbar />
+              <Iphone />
+              <Footer />
+            </PrivateRoute>
           </>
         }
       />
@@ -54,9 +59,11 @@ const AllRoutes = () => {
         path="/watch"
         element={
           <>
-            <Navbar />
-            <Watch />
-            <Footer />
+            <PrivateRoute>
+              <Navbar />
+              <Watch />
+              <Footer />
+            </PrivateRoute>
           </>
         }
       />
@@ -64,9 +71,11 @@ const AllRoutes = () => {
         path="/mac"
         element={
           <>
-            <Navbar />
-            <Mac />
-            <Footer />
+            <PrivateRoute>
+              <Navbar />
+              <Mac />
+              <Footer />
+            </PrivateRoute>
           </>
         }
       />
@@ -74,17 +83,54 @@ const AllRoutes = () => {
         path="/ipad"
         element={
           <>
-            <Navbar />
-            <Ipad />
-            <Footer />
+            <PrivateRoute>
+              <Navbar />
+              <Ipad />
+              <Footer />
+            </PrivateRoute>
           </>
         }
       />
-      <Route path="store/products/:id" element={<SinglePage />} />
-      <Route path="/iphone/:id" element={<SinglePage />} />
-      <Route path="/ipad/:id" element={<SinglePage />} />
-      <Route path="/mac/:id" element={<SinglePage />} />
-      <Route path="/watch/:id" element={<SinglePage />} />
+      <Route
+        path="store/products/:id"
+        element={
+          <PrivateRoute>
+            <SinglePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/iphone/:id"
+        element={
+          <PrivateRoute>
+            <SinglePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/ipad/:id"
+        element={
+          <PrivateRoute>
+            <SinglePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/mac/:id"
+        element={
+          <PrivateRoute>
+            <SinglePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/watch/:id"
+        element={
+          <PrivateRoute>
+            <SinglePage />
+          </PrivateRoute>
+        }
+      />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />

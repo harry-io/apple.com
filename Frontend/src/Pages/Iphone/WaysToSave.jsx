@@ -199,6 +199,10 @@ const Details = styled.div`
   position: absolute;
   top: 35px;
   left: 90px;
+  @media (max-width: 768px) {
+    top: 20px;
+    left: 50px;
+  }
 `;
 const Title = styled.p`
   width: 80%;

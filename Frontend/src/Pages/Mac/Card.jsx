@@ -51,6 +51,10 @@ const DetailsB = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 const Button = styled.button`
   border: none;

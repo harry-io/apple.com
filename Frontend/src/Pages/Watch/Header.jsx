@@ -70,6 +70,9 @@ const ParaA = styled.h1`
   font-size: 48px;
   display: inline;
   font-weight: 600;
+  @media (max-width: 720px) {
+    font-size: 35px;
+  }
 `;
 const ParaB = styled.p`
   font-size: 48px;

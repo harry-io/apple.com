@@ -1,8 +1,10 @@
+import { removeData } from "jquery";
 import { getData } from "../../Utils/LocalStorage/ls";
 import {
   AUTH_FAILURE,
   AUTH_REQUEST,
   LOGIN_AUTH_SUCCESS,
+  LOGOUT,
   SIGNUP_AUTH_SUCCESS,
 } from "./auth.actionTypes";
 
@@ -43,6 +45,12 @@ const authReducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         isError: true,
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        isAuth: false,
       };
     }
     default: {

@@ -1,7 +1,11 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutAction } from "../Redux/Auth/auth.action";
 
 export const NavbarBag = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector((store) => store.authReducer.isAuth);
   return (
     <>
       <div className="cartData">
@@ -41,9 +45,15 @@ export const NavbarBag = () => {
           <Link>
             <i className="fa fa-user-o"></i> Account
           </Link>
-          <Link to="/login">
-            <i className="fa fa-sign-in"></i> Sign in
-          </Link>
+          {isAuth ? (
+            <Link to="" onClick={() => dispatch(logoutAction)}>
+              <i className="fa fa-sign-in"></i> Logout
+            </Link>
+          ) : (
+            <Link to="/login">
+              <i className="fa fa-sign-in"></i> Sign in
+            </Link>
+          )}
         </div>
       </div>
     </>
