@@ -34,6 +34,7 @@ export const getProducts = (url) => (dispatch) => {
     })
     .then((res) => {
       dispatch(getProductsSuccess(res.data));
+      console.log(res.data)
     })
     .catch(() => dispatch(productsFailure()));
 };
