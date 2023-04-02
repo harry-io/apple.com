@@ -8,10 +8,19 @@ import {
     Td,
     TableContainer,
     Image,
+    useDisclosure,
 } from '@chakra-ui/react'
 import { MdDeleteOutline } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { DeleteOrdersData } from '../../Redux/Admin/admin.action'
 
-const Orders = () => {
+const Orders = ({ orders }) => {
+    const dispatch = useDispatch();
+    const deleteOrder = (id) => {
+        // dispatch(DeleteOrdersData(id));
+        console.log(id);
+    }
+
     return (
         <>
             <TableContainer>
@@ -20,21 +29,27 @@ const Orders = () => {
                         <Tr>
                             <Th>ID</Th>
                             <Th>Product</Th>
+                            <Th>Category</Th>
                             <Th>Description</Th>
                             <Th>Price</Th>
                             <Th>Status</Th>
-                            <Th>Delete</Th>
+                            <Th>Cancel</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Td>1</Td>
-                            <Td><Image w='60px' src='https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mac-card-40-macbook-air-202110?wid=600&hei=500&fmt=p-jpg&qlt=95&.v=1664576115052' /></Td>
-                            <Td >MacBook Air with M1 chip</Td>
-                            <Td>₹17436.00/mo.Per Month</Td>
-                            <Td>Pending</Td>
-                            <Td cursor={'pointer'}><MdDeleteOutline /></Td>
-                        </Tr>
+                        {
+                            orders.map((e, i) => (
+                                <Tr key={i + 1}>
+                                    <Td>{i + 1}.</Td>
+                                    <Td><Image w='60px' src={e.image} /></Td>
+                                    <Td>{e.category}</Td>
+                                    <Td>{e.title}</Td>
+                                    <Td >{e.price.substring(0, 28).concat("...")}</Td>
+                                    <Td>Pending</Td>
+                                    <Td cursor={'pointer'} onClick={() => deleteOrder(e._id)}><MdDeleteOutline /></Td>
+                                </Tr>
+                            ))
+                        }
                     </Tbody>
                 </Table>
             </TableContainer>

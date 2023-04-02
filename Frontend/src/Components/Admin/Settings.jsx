@@ -1,5 +1,6 @@
-import { Box, Flex, chakra, Stack, Button, FormControl, FormLabel, Center, Avatar, AvatarBadge, Input, } from '@chakra-ui/react';
+import { Box, Flex, chakra, Stack, Button, FormControl, FormLabel, Center, Avatar, Input, } from '@chakra-ui/react';
 import React from 'react'
+import logo from '../../Images/boltLogo.png'
 
 const Settings = () => {
   return (
@@ -9,7 +10,7 @@ const Settings = () => {
         fontSize={'4xl'}
         py={10}
         fontWeight={'bold'}>
-        Analytics of the year
+        Admin Settings
       </chakra.h1>
       <Flex
         align={'center'}
@@ -29,9 +30,7 @@ const Settings = () => {
               <Center>
                 <Avatar
                   size={'xl'}
-                  src={
-                    'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
-                  }
+                  src={logo}
                   alt={'Avatar Alt'}
                   mb={4}
                   pos={'relative'}
@@ -62,15 +61,15 @@ const Settings = () => {
               </Center>
             </Stack>
           </FormControl>
-          <FormControl id="userName" isRequired>
-            <FormLabel>User name</FormLabel>
+          <FormControl id="userName" >
+            <FormLabel>Name</FormLabel>
             <Input
               placeholder="UserName"
               _placeholder={{ color: 'gray.500' }}
               type="text"
             />
           </FormControl>
-          <FormControl id="email" isRequired>
+          <FormControl id="email" >
             <FormLabel>Email address</FormLabel>
             <Input
               placeholder="your-email@example.com"
@@ -78,12 +77,20 @@ const Settings = () => {
               type="email"
             />
           </FormControl>
-          <FormControl id="password" isRequired>
-            <FormLabel>Password</FormLabel>
+          <FormControl id="age" >
+            <FormLabel>Age</FormLabel>
             <Input
               placeholder="password"
               _placeholder={{ color: 'gray.500' }}
-              type="password"
+              type="text"
+            />
+          </FormControl>
+          <FormControl id="location" >
+            <FormLabel>Location</FormLabel>
+            <Input
+              placeholder="password"
+              _placeholder={{ color: 'gray.500' }}
+              type="text"
             />
           </FormControl>
           <Stack spacing={6} direction={['column', 'row']}>
