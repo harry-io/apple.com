@@ -16,6 +16,7 @@ import React, { useState } from 'react'
 import { BiBookAdd } from 'react-icons/bi'
 import { useDispatch } from 'react-redux';
 import { AddAdminProducts } from '../../Redux/Admin/admin.action';
+import { toast } from 'react-hot-toast';
 
 function AddProduct() {
     const [title, setTitle] = useState("");
@@ -33,7 +34,17 @@ function AddProduct() {
                 image: selectedImage,
                 price: price
             }))
-            console.log('added');
+            onclose();
+            // console.log('added');
+            toast.success("Product added successfully !", {
+                style: {
+                    borderRadius: "50px",
+                    background: "#989898",
+                    color: "#ffffff",
+                    padding: "1rem 1.5rem",
+                    fontWeight: "600",
+                },
+            });
         }
     }
 
@@ -75,8 +86,29 @@ function AddProduct() {
                                     onChange={(e) => setPrice(e.target.value)}
                                 />
                                 <Box m='40px 0'>
-                                    <Button mr={3} onClick={handleAddProd}>Save</Button>
-                                    <Button onClick={onClose}>Cancel</Button>
+                                    <Button
+                                        mr={3}
+                                        onClick={handleAddProd}
+                                        _hover={{
+                                            background: 'linear-gradient(to right, #90aefe, #0e61f9)',
+                                            color: 'white',
+                                        }}
+                                        background='linear-gradient(to right, #50aefe, #0c61f4)'
+                                        color='white'
+                                    >
+                                        Save
+                                    </Button>
+                                    <Button
+                                        onClick={onClose} _hover={{
+                                            background: 'linear-gradient(to right, #90aefe, #0e61f9)',
+                                            color: 'white',
+                                        }}
+                                        background='linear-gradient(to right, #50aefe, #0c61f4)'
+                                        color='white'
+
+                                    >
+                                        Cancel
+                                    </Button>
                                 </Box>
                             </FormControl>
                         </DrawerBody>

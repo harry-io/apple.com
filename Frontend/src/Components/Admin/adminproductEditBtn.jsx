@@ -3,7 +3,6 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     useDisclosure,
@@ -16,30 +15,22 @@ import {
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { TbEdit } from 'react-icons/tb'
-import { useDispatch } from 'react-redux'
-import { editAdminProducts, getAdminProducts } from '../../Redux/Admin/admin.action'
-
 
 export default function AdminproductEditBtn() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
-    const dispatch = useDispatch();
     const [edit, setEdit] = useState({});
 
     const handleEdit = (e) => {
         const { name, value } = e.target;
-        setEdit({ ...edit, [name]: +value });
+        setEdit({ ...edit, [name]: value });
         // console.log(e.target.name);
 
     }
-    console.log(edit);
+    // console.log(edit);
 
-    const HandleSaveEdit = (_) => {
-        dispatch(editAdminProducts(_, edit))
-        dispatch(getAdminProducts());
-    }
-
+ 
     return (
         <>
             <Text fontSize={'lg'} onClick={onOpen} color='black'><TbEdit /></Text>
@@ -81,18 +72,11 @@ export default function AdminproductEditBtn() {
                                 name='price'
                             />
                             <Box m='40px 0'>
-                                <Button mr={3} onClick={HandleSaveEdit}>Save</Button>
+                                <Button mr={3} onClick={''}>Save</Button>
                                 <Button onClick={onClose}>Cancel</Button>
                             </Box>
                         </FormControl>
                     </ModalBody>
-
-                    {/* <ModalFooter>
-                        <Button colorScheme='blue' mr={3}>
-                            Save
-                        </Button>
-                        <Button onClick={onClose}>Cancel</Button>
-                    </ModalFooter> */}
                 </ModalContent>
             </Modal>
         </>

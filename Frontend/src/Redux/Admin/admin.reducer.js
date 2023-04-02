@@ -4,7 +4,9 @@ const initialState = {
     loading: false,
     error: false,
     adminProducts: [],
-    orders: []
+    orders: [],
+    products: [],
+    adminDetails: []
 }
 
 const AdminReducer = (state = initialState, { type, payload }) => {
@@ -15,6 +17,8 @@ const AdminReducer = (state = initialState, { type, payload }) => {
             return { ...state, loading: false, error: true }
         case types.GETORDERSDATA:
             return { ...state, orders: payload, loading: false }
+        case types.GETPRODUCTSCOUNT:
+            return { ...state, products: payload, loading: false }
         case types.DELETEORDERSDATA: {
             let data = state.orders.filter((item) => {
                 return item.id !== payload.id
@@ -34,6 +38,12 @@ const AdminReducer = (state = initialState, { type, payload }) => {
         case types.EDITADMINPRODUCTS: {
             return {
                 ...state, adminProducts: state.adminProducts.map((item) =>
+                    item.id === payload.id ? payload : item)
+            }
+        }
+        case types.EDITADMINDETAILS: {
+            return {
+                ...state, adminDetails: state.adminDetails.map((item) =>
                     item.id === payload.id ? payload : item)
             }
         }
