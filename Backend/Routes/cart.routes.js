@@ -5,6 +5,78 @@ const cartRouter =  express.Router()
 
 
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     NewProduct:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           description: product name.
+ *         category:
+ *           type: string
+ *           description: category of product.
+ *         image:
+ *           type: string
+ *           description: link of product image.
+ *         price:
+ *           type: integer
+ *           description: price of product.
+ *     RegResult:
+ *       type: object
+ *       properties:
+ *         msg:
+ *           type: string
+ *           description: message
+ *           example: User Registered Succesfully. 
+ *     LogReq:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           description: message
+ *           example: Albin@gmail.com.
+ *         password:
+ *           type: string
+ *           description: message
+ *           example: Albin123.
+ *     AddResponse:
+ *       type: object
+ *       properties:
+ *         msg:
+ *           type: string
+ *           description: message
+ *           example: Product Added Succesfully.
+ */
+
+/**
+ * @swagger
+ * /cartProducts/add:
+ *  post:
+ *    summary: To add new Products in Cart.
+ *    tags: [Cart]
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *     required: true
+ *     content:
+ *       application/json:
+ *         schema:
+ *            $ref: '#/components/schemas/NewProduct' 
+ *    responses:
+ *     200:
+ *       description: Product successfully Added Cart
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/AddResponse'
+ *     400:
+ *       description: Bad Request      
+ */
+
+
 
 //CREATE
 cartRouter.post("/add",async(req,res)=>{
@@ -17,6 +89,25 @@ cartRouter.post("/add",async(req,res)=>{
    }
 })
 
+
+/**
+ * @swagger
+ * /cartProducts/:
+ *  get:
+ *    summary: To get  all products.
+ *    tags: [Cart]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: List of all Products
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/NewProduct'
+ *     400:
+ *       description: Bad Request      
+ */
 
 
 //READ
@@ -31,6 +122,47 @@ cartRouter.get("/",async(req,res)=>{
     res.status(400).send({"msg":error.message})
    }
 })
+
+
+/**
+ * @swagger
+ * /cartProducts/{id}:
+ *  delete:
+ *    summary: To remove product by id.
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Cart]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: Product deleted 
+ *       content:
+ *         application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Product deleted successfully
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
 
 
 
@@ -78,6 +210,41 @@ cartRouter.get("/search",async(req,res)=>{
     }
 })
 
+
+/**
+ * @swagger
+ * /cartProducts/search/{id}:
+ *  get:
+ *    summary: To get product by id.
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Cart]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: Single Product 
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/NewProduct'
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
 
 //GET BY ID
 cartRouter.get("/search/:id",async(req,res)=>{
