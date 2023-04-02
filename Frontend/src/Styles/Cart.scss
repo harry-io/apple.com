@@ -44,7 +44,7 @@
         .left_image {
           width: 25%;
           img {
-            width: 50%;
+            width: 100%;
             padding: 10px;
           }
         }
@@ -199,6 +199,12 @@
           }
           .right3 {
             text-align: center;
+            .abu{
+              button{
+
+                width: 30%;
+              }
+            }
           }
         }
       }
