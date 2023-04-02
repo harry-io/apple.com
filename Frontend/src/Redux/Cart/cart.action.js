@@ -7,6 +7,7 @@ import {
 import axios from "axios";
 import { getData } from "../../Utils/LocalStorage/ls";
 import { toast } from "react-hot-toast";
+import { BiError } from "react-icons/bi";
 
 export const CartRequest = () => {
   return {
@@ -58,40 +59,57 @@ export const deleteCart = (url) => (dispatch) => {
     })
     .catch(() => dispatch(CartFailure()));
 };
-export const addCart = (url,body) => (dispatch) => {
-    dispatch(CartRequest());
-    axios
-      .post(url,body, {
-        headers: {
-          Authorization: `Bearer ${getData("token_bolt")}`,
+export const addCart = (url, body) => (dispatch) => {
+  dispatch(CartRequest());
+  axios
+    .post(url, body, {
+      headers: {
+        Authorization: `Bearer ${getData("token_bolt")}`,
+      },
+    })
+    .then((res) => {
+      dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"));
+    })
+    .then(() => {
+      toast.success("Added to Cart successfully !", {
+        style: {
+          borderRadius: "50px",
+          background: "#989898",
+          color: "#ffffff",
+          padding: "1rem 1.5rem",
+          fontWeight: "600",
         },
-      })
-      .then((res) => {
-        dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"));
-      }).then(()=>{
-        toast.success("Added to Cart successfully !", {
-            style: {
-              borderRadius: "50px",
-              background: "#989898",
-              color: "#ffffff",
-              padding: "1rem 1.5rem",
-              fontWeight: "600",
-            },
-          });
-      })
-      .catch(() => dispatch(CartFailure()));
-  };
+      });
+    })
+    .catch(() => {
+      dispatch(CartFailure());
+      toast.error("Product already in the cart !", {
+        icon: (
+          <BiError
+            style={{ color: "yellow", fontSize: "1.5rem", fontWeight: "800" }}
+          />
+        ),
+        style: {
+          borderRadius: "50px",
+          background: "#989898",
+          color: "#ffffff",
+          padding: "1rem 1.5rem",
+          fontWeight: "600",
+        },
+      });
+    });
+};
 
-  export const IncCart = (url,body) => (dispatch) => {
-    dispatch(CartRequest());
-    axios
-      .patch(url,body ,{
-        headers: {
-          Authorization: `Bearer ${getData("token_bolt")}`,
-        },
-      })
-      .then((res) => {
-        dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"));
-      })
-      .catch(() => dispatch(CartFailure()));
-  };
+export const IncCart = (url, body) => (dispatch) => {
+  dispatch(CartRequest());
+  axios
+    .patch(url, body, {
+      headers: {
+        Authorization: `Bearer ${getData("token_bolt")}`,
+      },
+    })
+    .then((res) => {
+      dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"));
+    })
+    .catch(() => dispatch(CartFailure()));
+};
