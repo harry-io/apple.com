@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutAction } from "../Redux/Auth/auth.action";
 
 export const NavbarBag = () => {
   const dispatch = useDispatch();
   const { isAuth } = useSelector((store) => store.authReducer);
-  const store = useSelector((store) => store.authReducer);
-  console.log(store);
+  const role = useSelector((store) => store.authReducer.role);
+  const navigate = useNavigate();
+  console.log(role);
   return (
     <>
       <div className="cartData">
@@ -44,9 +45,11 @@ export const NavbarBag = () => {
           <Link to="/cart">
             <i className="fa fa-bookmark-o"></i> Your Saves
           </Link>
-          <Link>
-            <i className="fa fa-user-o"></i> Admin
-          </Link>
+          {role === "admin" && isAuth && (
+            <Link to="/admin/dashboard">
+              <i className="fa fa-user-o"></i> Admin
+            </Link>
+          )}
           {isAuth ? (
             <Link to="" onClick={() => dispatch(logoutAction)}>
               <i className="fa fa-sign-in"></i> Logout
