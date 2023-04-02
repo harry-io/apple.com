@@ -52,8 +52,10 @@ const productRouter =  express.Router()
  * @swagger
  * /products/add:
  *  post:
- *    summary: To post details of new user/admin.
+ *    summary: To add new Products.
  *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
  *    requestBody:
  *     required: true
  *     content:
@@ -120,6 +122,46 @@ productRouter.get("/",async(req,res)=>{
 })
 
 
+/**
+ * @swagger
+ * /products/{id}:
+ *  delete:
+ *    summary: To remove product by id.
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: Product deleted 
+ *       content:
+ *         application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Product deleted successfully
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
+
 
 //DELETE
 productRouter.delete("/:id",async(req,res)=>{
@@ -136,6 +178,52 @@ productRouter.delete("/:id",async(req,res)=>{
   }
 })
 
+
+/**
+ * @swagger
+ * /products/{id}:
+ *  patch:
+ *    summary: To update product by id.
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *     required: true
+ *     content:
+ *       application/json:
+ *         schema:
+ *            $ref: '#/components/schemas/NewProduct'
+ *    responses:
+ *     200:
+ *       description: Product updated
+ *       content:
+ *         application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Product updated successfully
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
 
 
 //UPDATE
@@ -154,6 +242,48 @@ productRouter.patch("/:id",async(req,res)=>{
   })
 
 
+
+/**
+ * @swagger
+ * /products/search?q={Title}:
+ *  get:
+ *    summary: To Search product by title.
+ *    parameters:
+ *       - in: path
+ *         name: Title
+ *         required: true
+ *         description: Title of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: Product updated
+ *       content:
+ *         application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Product updated successfully
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
+
+
 //SEARCH
 productRouter.get("/search",async(req,res)=>{
     const {q} = req.query
@@ -164,6 +294,43 @@ productRouter.get("/search",async(req,res)=>{
         res.status(400).send({"msg":error})
     }
 })
+
+
+/**
+ * @swagger
+ * /products/search/{id}:
+ *  get:
+ *    summary: To get product by id.
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the product.
+ *         schema:
+ *           type: string
+ *    tags: [Products]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *     200:
+ *       description: Single Product 
+ *       content:
+ *         application/json:
+ *            schema:
+ *               $ref: '#/components/schemas/NewProduct'
+ *     400:
+ *       description: Bad Request 
+ *       content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                  msg:
+ *                    type: string
+ *                    description: message 
+ *                    example: Invalid id    
+ */
+
 
 
 //GET BY ID
