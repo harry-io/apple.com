@@ -56,7 +56,7 @@ dispatch(addCart("https://back-ened-bolt.onrender.com/cartProducts/add",product)
                   </p>
                 </div>
                 <div>
-                  <button onClick={handleaddcart}>Add To Bag</button>
+                  <button className="addtobag" onClick={handleaddcart}>Add To Bag</button>
                 </div>
               </div>
               <div className="mac-specs">
