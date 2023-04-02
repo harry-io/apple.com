@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Table,
   Thead,
@@ -15,11 +15,30 @@ import { MdDeleteOutline } from 'react-icons/md'
 import { TbEdit } from 'react-icons/tb'
 import Search from './Search';
 import AddProduct from './AddProduct';
+import { useDispatch, useSelector } from 'react-redux';
+import { DeleteAdminProducts, getAdminProducts } from '../../Redux/Admin/admin.action';
+import AdminproductEditBtn from './adminproductEditBtn';
 
 const AdminProducts = () => {
-  const [checkedItems, setCheckedItems] = React.useState([false, false])
-  const allChecked = checkedItems.every(Boolean)
-  const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+  // const [checkedItems, setCheckedItems] = React.useState([false, false])
+  // const allChecked = checkedItems.every(Boolean)
+  // const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+
+  const dispatch = useDispatch();
+  const { adminProducts } = useSelector(store => store.AdminReducer);
+  // console.log(adminProducts, 'adminProducts');
+
+  useEffect(() => {
+    dispatch(getAdminProducts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const handleDelete = (id) => {
+    // dispatch(DeleteAdminProducts(id));
+    // dispatch(getAdminProducts());
+    console.log(id, 'deleted');
+  }
+
   return (
     <>
       <chakra.h1
@@ -29,16 +48,19 @@ const AdminProducts = () => {
         fontWeight={'bold'}>
         Products
       </chakra.h1>
+
       <Box display={'flex'}>
         <AddProduct />
         <Search />
       </Box>
+
       <TableContainer>
         <Table variant='simple'>
           <Thead>
             <Tr>
               <Th>ID</Th>
               <Th>Product</Th>
+              <Th>Category</Th>
               <Th>Description</Th>
               <Th>Price</Th>
               <Th>Edit</Th>
@@ -46,14 +68,21 @@ const AdminProducts = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>1</Td>
-              <Td><Image w='60px' src='https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mac-card-40-macbook-air-202110?wid=600&hei=500&fmt=p-jpg&qlt=95&.v=1664576115052' /></Td>
-              <Td >MacBook Air with M1 chip</Td>
-              <Td>₹17436.00/mo.Per Month</Td>
-              <Td><TbEdit /></Td>
-              <Td><MdDeleteOutline /></Td>
-            </Tr>
+            {
+              adminProducts?.map((e, i) => (
+                <Tr>
+                  <Td>{i + 1}.</Td>
+                  <Td><Image w='60px' src={e.image} /></Td>
+                  <Td>{e.category}</Td>
+                  <Td >{e.title}</Td>
+                  <Td>{e.price.substring(0, 28).concat("...")}</Td>
+                  <Td cursor={'pointer'}>
+                    <AdminproductEditBtn />
+                  </Td>
+                  <Td cursor={'pointer'} onClick={() => handleDelete(e._id)}><MdDeleteOutline /></Td>
+                </Tr>
+              ))
+            }
           </Tbody>
         </Table>
       </TableContainer>
@@ -64,25 +93,3 @@ const AdminProducts = () => {
 export default AdminProducts;
 
 
-
-{/* <Checkbox
-        isChecked={allChecked}
-        isIndeterminate={isIndeterminate}
-        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
-      >
-        Parent Checkbox
-      </Checkbox>
-      <Stack pl={6} mt={1} spacing={1}>
-        <Checkbox
-          isChecked={checkedItems[0]}
-          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-        >
-          Child Checkbox 1
-        </Checkbox>
-        <Checkbox
-          isChecked={checkedItems[1]}
-          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-        >
-          Child Checkbox 2
-        </Checkbox>
-      </Stack> */}

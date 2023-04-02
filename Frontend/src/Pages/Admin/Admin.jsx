@@ -11,8 +11,8 @@ const Admin = () => {
             {/* <Sidebar /> */}
             <Dashboard />
             <AdminProducts />
-            <Analytics />
-            <Settings />
+            {/* <Analytics /> */}
+            <Settings />    
         </>
     )
 }
