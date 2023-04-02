@@ -1,0 +1,181 @@
+#cart.cart {
+  * {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .cart_main {
+    .heading_cart {
+      border-bottom: 1px solid#d2d2d7;
+      width: 80%;
+      margin: 20px auto;
+      padding: 10px;
+      .cartbutton {
+        background-image: linear-gradient(-45deg, blue, skyblue);
+
+        /* margin: 10px; */
+        padding: 10px;
+        text-align: center;
+        /* text-transform: uppercase; */
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 6px;
+        /* display: block; */
+        border: none;
+        font-weight: 600;
+        width: 150px;
+      }
+      .cartbutton:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .product_data_main {
+      width: 80%;
+      margin: auto;
+      .product_data {
+        display: flex;
+        justify-content: space-evenly;
+        .left_image {
+          width: 25%;
+          img {
+            width: 50%;
+            padding: 10px;
+          }
+        }
+        .right1 {
+          width: 35%;
+          text-align: left;
+          p {
+            font-size: 18px;
+          }
+        }
+        .right_most {
+          width: 35%;
+          display: grid;
+          .right2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+              font-size: 18px;
+              font-weight: 700;
+            }
+          }
+        }
+        .right3 {
+          text-align: right;
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .billing_section {
+      margin: 20px auto;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      line-height: 0;
+      padding: 0 15px;
+      border-top: 1px solid #d2d2d7;
+      border-bottom: 1px solid #d2d2d7;
+      p{
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .shippingfree {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .amounttotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .emiamount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .checkout_page_button {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 20px;
+        button {
+          background-image: linear-gradient(-45deg, blue, skyblue);
+
+          /* margin: 10px; */
+          padding: 10px;
+          text-align: center;
+          /* text-transform: uppercase; */
+          transition: 0.5s;
+          background-size: 200% auto;
+          color: white;
+          box-shadow: 0 0 20px #eee;
+          border-radius: 6px;
+          /* display: block; */
+          border: none;
+          font-weight: 600;
+          width: 150px;
+        }
+        button:hover {
+          background-position: right center;
+          color: #fff;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  #cart.cart {
+    .cart_main {
+      .heading_cart {
+        h1 {
+          font-size: 16px !important;
+        }
+      }
+      .product_data_main {
+        .product_data {
+          flex-direction: column;
+          align-items: center;
+          .left_image {
+            width: 100%;
+          }
+          .right1 {
+            width: 100%;
+            text-align: center;
+          }
+          .right_most {
+            width: 100%;
+          }
+          .right3 {
+            text-align: center;
+          }
+        }
+      }
+      .billing_section {
+        
+        width: 95%;
+        .emiamount {
+          h4 {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

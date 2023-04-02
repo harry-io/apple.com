@@ -3,6 +3,7 @@ import "../../Styles/Payment.scss";
 import { Link } from "react-router-dom";
 import { Navbar } from "../../Components/Navbar";
 
+
 const address = JSON.parse(localStorage.getItem("shipping")) || {
   address1: "",
   address2: "",
@@ -11,6 +12,9 @@ const address = JSON.parse(localStorage.getItem("shipping")) || {
   statename: "",
   country: "",
 };
+
+
+
 
 function Payment() {
   const [card, setCards] = useState("none");
