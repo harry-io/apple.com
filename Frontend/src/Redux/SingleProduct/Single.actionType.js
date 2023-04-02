@@ -1,11 +1,11 @@
 import axios from "axios"
-import { singleProductFaliureAction, singleProductSuccessAction } from "./Single.action"
+import { singleProductFaliureAction, singleProductRequestAction, singleProductSuccessAction } from "./Single.action"
 import { getData } from "../../Utils/LocalStorage/ls"
 
 
 export const GET_SINGLE_PRODUCT_REQUEST = "GET_SINGLE_PRODUCT_REQUEST"
 export const GET_SINGLE_PRODUCT_SUCCESS = "GET_SINGLE_PRODUCT_SUCCESS"
-export const GET_SINGLE_PRODUCT_FALIURE = "GET_SINGLE_PRODUCT_REQUEST"
+export const GET_SINGLE_PRODUCT_FALIURE = "GET_SINGLE_PRODUCT_FALIURE"
 
 
 
@@ -15,11 +15,10 @@ export const GET_SINGLE_PRODUCT_FALIURE = "GET_SINGLE_PRODUCT_REQUEST"
 
 
 export const getSingleProduct = (id) => (dispatch) =>{
-    dispatch(singleProductSuccessAction())
+    dispatch(singleProductRequestAction())
     console.log(id)
-    axios.get(`https://back-ened-bolt.onrender.com/products/${id}`,{
+    axios.get(`https://back-ened-bolt.onrender.com/products/search/${id}`,{
         headers:{
-            "Content-Type":"application/json",
             Authorization: `bearer ${getData("token_bolt")}`
         }
     })

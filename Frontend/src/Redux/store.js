@@ -10,8 +10,8 @@ import { singleProductReducer } from "./SingleProduct/Single.reducer";
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
-  singleProductReducer
-  AdminReducer,
+  singleProductReducer,
+  AdminReducer
 });
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
