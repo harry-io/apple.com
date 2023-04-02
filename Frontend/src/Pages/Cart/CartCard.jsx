@@ -85,7 +85,7 @@ function CartCard({ item }) {
           </div>
 
           <div className="right3">
-            <div>
+            <div className="abu">
               <p>{item.price}</p>
               <button onClick={() => removeitem(item._id)}>Remove</button>
             </div>
