@@ -68,7 +68,7 @@ function SamplePrevArrow(props) {
 const AppleExperience = () => {
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -183,6 +183,9 @@ const Image = styled.img`
   margin: auto;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  @media (max-width: 768px) {
+    filter: brightness(90%);
+  }
 `;
 const Details = styled.div`
   position: absolute;
@@ -196,6 +199,9 @@ const Title = styled.p`
   font-weight: 400;
   margin-bottom: -15px;
   color: #605f5f;
+  @media (max-width: 768px) {
+    text-shadow: 0px 2px 5px #000000;
+  }
 `;
 const TitleB = styled.p`
   text-align: justify;
@@ -203,4 +209,7 @@ const TitleB = styled.p`
   margin-bottom: -0.8rem;
   font-size: 1.5rem;
   font-weight: 600;
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;

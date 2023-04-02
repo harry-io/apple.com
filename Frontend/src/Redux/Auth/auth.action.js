@@ -1,12 +1,13 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { setData } from "../../Utils/LocalStorage/ls";
+import { removeData, setData } from "../../Utils/LocalStorage/ls";
 import { BiError } from "react-icons/bi";
 
 import {
   AUTH_FAILURE,
   AUTH_REQUEST,
   LOGIN_AUTH_SUCCESS,
+  LOGOUT,
   SIGNUP_AUTH_SUCCESS,
 } from "./auth.actionTypes";
 //
@@ -26,6 +27,9 @@ export const loginSuccess = (payload) => {
 export const signupSuccess = () => {
   return { type: SIGNUP_AUTH_SUCCESS };
 };
+export const logout = () => {
+  return { type: LOGOUT };
+};
 //
 //
 //
@@ -35,7 +39,6 @@ export const signupAction = (body, navigate) => (dispatch) => {
   axios
     .post(`https://back-ened-bolt.onrender.com/users/register`, body)
     .then((res) => {
-      console.log(res);
       toast.success("Account created successfully !", {
         style: {
           borderRadius: "50px",
@@ -72,7 +75,7 @@ export const signupAction = (body, navigate) => (dispatch) => {
     });
 };
 //LOGIN ACTION
-export const loginAction = (body, navigate) => (dispatch) => {
+export const loginAction = (body, navigate, location) => (dispatch) => {
   dispatch(authRequest());
   axios
     .post(`https://back-ened-bolt.onrender.com/users/login`, body)
@@ -88,7 +91,9 @@ export const loginAction = (body, navigate) => (dispatch) => {
           fontWeight: "600",
         },
       });
-      navigate("/");
+      navigate(location.state === null ? "/" : location.state, {
+        replace: true,
+      });
     })
     .catch((error) => {
       toast.error(error.response.data.msg, {
@@ -106,4 +111,18 @@ export const loginAction = (body, navigate) => (dispatch) => {
         },
       });
     });
+};
+// LOGOUT ACTION
+export const logoutAction = (dispatch) => {
+  dispatch(logout());
+  removeData("token_bolt");
+  toast.success("Logged out successfully !", {
+    style: {
+      borderRadius: "50px",
+      background: "#989898",
+      color: "#ffffff",
+      padding: "1rem 1.5rem",
+      fontWeight: "600",
+    },
+  });
 };
