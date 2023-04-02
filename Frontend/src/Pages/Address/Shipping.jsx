@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../../Styles/Shipping.scss";
 import { Navbar } from "../../Components/Navbar";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import { setData } from "../../Utils/LocalStorage/ls";
 
 function Shipping() {
   const [firstname, setFirstname] = useState("");
@@ -13,6 +14,7 @@ function Shipping() {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const navigate=useNavigate()
   const user_data = {
     firstname: firstname,
     lastname: lastname,
@@ -25,8 +27,9 @@ function Shipping() {
     phone: phone,
   };
   const saveData = (e) => {
-    // e.preventDefault()
-    localStorage.setItem("shipping", JSON.stringify(user_data));
+    e.preventDefault()
+setData("shipping",user_data)
+    navigate("/payment")
   };
 
   return (
@@ -46,7 +49,7 @@ function Shipping() {
         </div>
         <div className="actualform">
           <h1 className="sam">Where should we send your order?</h1>
-          <form className="data">
+          <form onSubmit={saveData} className="data">
             <h3>Enter Your name and address</h3>
             <div className="addressinfo">
               <input
@@ -121,8 +124,8 @@ function Shipping() {
               </div>
             </div>
             <div className="shipp_button">
-             <Link to="/payment">
-             <button onClick={saveData}>Continue to Payment</button></Link>
+              <input type="submit" value="Continue to Payment" />
+
             </div>
           </form>
         </div>

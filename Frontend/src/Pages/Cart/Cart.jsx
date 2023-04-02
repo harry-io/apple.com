@@ -17,7 +17,7 @@ function Cart() {
 
     useEffect(() => {
 
-    dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"))
+    dispatch(getCart("https://ill-lime-hippopotamus-toga.cyclic.app//cartProducts"))
     
     }, [])
     

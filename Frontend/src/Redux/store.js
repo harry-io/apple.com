@@ -11,7 +11,7 @@ import { singleProductReducer } from "./SingleProduct/Single.reducer";
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
-  singleProductReducer
+  singleProductReducer,
   AdminReducer,
   CartReducer,
   
