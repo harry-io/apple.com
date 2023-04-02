@@ -1,29 +1,29 @@
 import {
-  GET_PRODUCTS_SUCCESS,
-  PRODUCTS_FAILURE,
-  PRODUCTS_REQUEST,
-} from "./products.actiontypes";
+  GET_CART_SUCCESS,
+  CART_FAILURE,
+  CART_REQUEST,
+} from "./cart.actionType";
 const initState = {
   isLoading: false,
   isError: false,
-  products: [],
+  cart: [],
 };
-export const productsReducer = (state = initState, { type, payload }) => {
+export const CartReducer = (state = initState, { type, payload }) => {
   switch (type) {
-    case PRODUCTS_REQUEST: {
+    case CART_REQUEST: {
       return {
         ...state,
         isLoading: true,
       };
     }
-    case GET_PRODUCTS_SUCCESS: {
+    case GET_CART_SUCCESS: {
       return {
         ...state,
         isLoading: false,
-        products: payload,
+        cart: payload,
       };
     }
-    case PRODUCTS_FAILURE: {
+    case CART_FAILURE: {
       return {
         ...state,
         isLoading: false,

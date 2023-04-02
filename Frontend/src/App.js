@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div className="App">
-      <ChakraProvider >
+      <ChakraProvider resetCSS={false}>
         <AllRoutes />
       </ChakraProvider>
       <Toaster />

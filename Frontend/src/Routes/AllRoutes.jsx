@@ -21,6 +21,7 @@ import PrivateRoute from "./PrivateRoute";
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
 import SearchPage from "../Pages/SearchPage/SearchPage";
+import Cart from "../Pages/Cart/Cart";
 
 const AllRoutes = () => {
   return (
@@ -153,6 +154,7 @@ const AllRoutes = () => {
       <Route path="/admin/dashboard" element={<Dashboard />} />
       <Route path="/shipping" element={<Shipping />} />
       <Route path="/payment" element={<Payment />} />
+      <Route path="/cart" element={<Cart/>} />
     </Routes>
   );
 };
