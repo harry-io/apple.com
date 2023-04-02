@@ -5,7 +5,9 @@ import { logoutAction } from "../Redux/Auth/auth.action";
 
 export const NavbarBag = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector((store) => store.authReducer.isAuth);
+  const { isAuth } = useSelector((store) => store.authReducer);
+  const store = useSelector((store) => store.authReducer);
+  console.log(store);
   return (
     <>
       <div className="cartData">
