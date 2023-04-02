@@ -17,8 +17,12 @@ import PrivateRoute from "./PrivateRoute";
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
 import SearchPage from "../Pages/SearchPage/SearchPage";
+import AdminProducts from "../Components/Admin/AdminProducts";
+import { Analytics } from "../Components/Admin/Analytics";
+import Settings from "../Components/Admin/Settings";
 import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
 import Cart from "../Pages/Cart/Cart";
+
 
 
 
@@ -154,7 +158,26 @@ const AllRoutes = () => {
           <Admin />
         </ChakraProvider>
       } />
-      <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/admin/dashboard" element={
+        <ChakraProvider>
+          <Dashboard />
+        </ChakraProvider>
+      } />
+      <Route path="/admin/products" element={
+        <ChakraProvider>
+          <AdminProducts />
+        </ChakraProvider>
+      } />
+      <Route path="/admin/analytics" element={
+        <ChakraProvider>
+          <Analytics />
+        </ChakraProvider>
+      } />
+      <Route path="/admin/settings" element={
+        <ChakraProvider>
+          <Settings />
+        </ChakraProvider>
+      } />
       <Route path="/shipping" element={<Shipping />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/cart" element={<Cart/>} />

@@ -8,17 +8,27 @@ import {
     Td,
     TableContainer,
     Image,
-    useDisclosure,
 } from '@chakra-ui/react'
 import { MdDeleteOutline } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { DeleteOrdersData } from '../../Redux/Admin/admin.action'
+import { toast } from 'react-hot-toast'
 
 const Orders = ({ orders }) => {
+    // const [status, setStatus] = useState(true);
     const dispatch = useDispatch();
     const deleteOrder = (id) => {
-        // dispatch(DeleteOrdersData(id));
-        console.log(id);
+        dispatch(DeleteOrdersData(id));
+        toast.success("Product deleted successfully !", {
+            style: {
+                borderRadius: "50px",
+                background: "#989898",
+                color: "#ffffff",
+                padding: "1rem 1.5rem",
+                fontWeight: "600",
+            },
+        });
+        // dispatch(getOrdersData);
     }
 
     return (
@@ -45,7 +55,7 @@ const Orders = ({ orders }) => {
                                     <Td>{e.category}</Td>
                                     <Td>{e.title}</Td>
                                     <Td >{e.price.substring(0, 28).concat("...")}</Td>
-                                    <Td>Pending</Td>
+                                    <Td cursor='pointer'>Pending</Td>
                                     <Td cursor={'pointer'} onClick={() => deleteOrder(e._id)}><MdDeleteOutline /></Td>
                                 </Tr>
                             ))

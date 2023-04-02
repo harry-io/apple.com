@@ -15,6 +15,7 @@ import Orders from './Orders';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getOrdersData } from '../../Redux/Admin/admin.action';
+import Sidebar from './Sidebar';
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -49,52 +50,47 @@ function StatsCard(props) {
 export default function Dashboard() {
     const dispatch = useDispatch();
     const { orders } = useSelector(store => store.AdminReducer);
-    // console.log(orders, 'orders');
     useEffect(() => {
-        dispatch(getOrdersData());
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        dispatch(getOrdersData);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }} id='dashboard'>
-            <chakra.h1
-                textAlign={'left'}
-                fontSize={'4xl'}
-                py={10}
-                fontWeight={'bold'}>
-                Dashboard
-            </chakra.h1>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
-                <StatsCard
-                    title={'Total Products'}
-                    stat={'200'}
-                    icon={<FiShoppingBag size={'3em'} />}
-                />
-                <StatsCard
-                    title={'Sales'}
-                    stat={'10,000'}
-                    icon={<BiDollar size={'2.9em'} />}
-                />
-                <StatsCard
-                    title={'Users'}
-                    stat={'7'}
-                    icon={<BsPerson size={'3em'} />}
-                />
-            </SimpleGrid>
-            <chakra.h1
-                textAlign={'left'}
-                fontSize={'4xl'}
-                py={10}
-                fontWeight={'bold'}>
-                Recent Orders
-            </chakra.h1>
-
-            {/* {
-                orders.map((e, i) => (
-                    <Orders key={i+1} {...e} />
-                ))
-            } */}
-
-            <Orders orders={orders} />
-        </Box>
+        <Flex w={"100%"}>
+            <Sidebar />
+            <Box w='100%' mx={'auto'} px={{ base: 2, sm: 12, md: 17 }}>
+                <chakra.h1
+                    textAlign={'left'}
+                    fontSize={'4xl'}
+                    py={10}
+                    fontWeight={'600'}>
+                    Dashboard
+                </chakra.h1>
+                <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
+                    <StatsCard
+                        title={'Total Products'}
+                        stat={'200'}
+                        icon={<FiShoppingBag size={'3em'} />}
+                    />
+                    <StatsCard
+                        title={'Sales'}
+                        stat={'10,000'}
+                        icon={<BiDollar size={'2.9em'} />}
+                    />
+                    <StatsCard
+                        title={'Users'}
+                        stat={'7'}
+                        icon={<BsPerson size={'3em'} />}
+                    />
+                </SimpleGrid>
+                <chakra.h1
+                    textAlign={'left'}
+                    fontSize={'4xl'}
+                    py={10}
+                    fontWeight={'600'}>
+                    Recent Orders
+                </chakra.h1>
+                <Orders orders={orders} />
+            </Box>
+        </Flex>
     );
 }
