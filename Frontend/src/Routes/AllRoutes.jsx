@@ -134,7 +134,7 @@ const AllRoutes = () => {
         path="/mac/:id"
         element={
           <PrivateRoute>
-            
+            <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -142,7 +142,7 @@ const AllRoutes = () => {
         path="/watch/:id"
         element={
           <PrivateRoute>
-            
+            <SinglePage/>
           </PrivateRoute>
         }
       />
