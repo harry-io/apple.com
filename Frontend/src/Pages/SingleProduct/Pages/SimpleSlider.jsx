@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-import Card from "../../Watch/Card";
 
 
 function SampleNextArrow(props) {

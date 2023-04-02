@@ -4,9 +4,10 @@ import "../Style/Mac.css";
 import { Footer } from "../../../Components/Footer";
 import {  useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType";
 import SimpleSlider from "./SimpleSlider";
 import Loader from "../../../Components/Loader/Loader";
+import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType";
+
 
 
 
@@ -31,7 +32,7 @@ function SinglePage() {
     <Navbar />
     <div>
       <div>
-        <h1>Choose your new {category}.</h1>
+        <h1>Choose your new {category&&category}.</h1>
       </div>
       <hr></hr>
       <div className="mac-parent-container">
@@ -44,9 +45,9 @@ function SinglePage() {
             <div>
               <div className="desc-mac">
                 <div>
-                  <h3>{title}</h3>
+                  <h3>{title&&title}</h3>
                   <p>
-                    {price}
+                    {price&&price}
                   </p>
                 </div>
                 <div>
