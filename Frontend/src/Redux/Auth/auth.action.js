@@ -81,8 +81,10 @@ export const loginAction = (body, navigate, location) => (dispatch) => {
     .post(`https://back-ened-bolt.onrender.com/users/login`, body)
     .then((res) => {
       console.log(res.data);
-      dispatch(loginSuccess(res.data.token));
+      dispatch(loginSuccess(res.data));
       setData("token_bolt", res.data.token);
+      setData("role_bolt", res.data.role);
+      setData("user_id_bolt", res.data.id);
       toast.success("Logged in successfully !", {
         style: {
           borderRadius: "50px",

@@ -43,7 +43,7 @@ export const NavbarBag = () => {
             <i className="fa fa-bookmark-o"></i> Your Saves
           </Link>
           <Link>
-            <i className="fa fa-user-o"></i> Account
+            <i className="fa fa-user-o"></i> Admin
           </Link>
           {isAuth ? (
             <Link to="" onClick={() => dispatch(logoutAction)}>
