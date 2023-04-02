@@ -21,7 +21,11 @@ import PrivateRoute from "./PrivateRoute";
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
 import SearchPage from "../Pages/SearchPage/SearchPage";
+<<<<<<< HEAD
 import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
+=======
+import Cart from "../Pages/Cart/Cart";
+>>>>>>> 479f86232d47dd6eada72cf39b4208fa639b635f
 
 const AllRoutes = () => {
   return (
@@ -158,6 +162,7 @@ const AllRoutes = () => {
       <Route path="/admin/dashboard" element={<Dashboard />} />
       <Route path="/shipping" element={<Shipping />} />
       <Route path="/payment" element={<Payment />} />
+      <Route path="/cart" element={<Cart/>} />
     </Routes>
   );
 };

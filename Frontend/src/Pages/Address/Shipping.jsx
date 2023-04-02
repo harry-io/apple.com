@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../Styles/Shipping.scss";
 import { Navbar } from "../../Components/Navbar";
+import {Link} from "react-router-dom"
 
 function Shipping() {
   const [firstname, setFirstname] = useState("");
@@ -120,7 +121,8 @@ function Shipping() {
               </div>
             </div>
             <div className="shipp_button">
-              <button onClick={saveData}>Continue to Payment</button>
+             <Link to="/payment">
+             <button onClick={saveData}>Continue to Payment</button></Link>
             </div>
           </form>
         </div>
