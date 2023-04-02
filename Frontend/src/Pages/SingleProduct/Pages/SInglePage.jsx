@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar } from "../../../Components/Navbar";
 import SimpleSlider from "../carousel/SimpleSlider";
 import "../Style/Mac.css";
 import { Footer } from "../../../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType";
+import { useParams } from "react-router-dom";
 
 function SinglePage() {
+
+    const dispatch = useDispatch()
+
+    const {isError, isLoading, product} = useSelector((store) =>store.singleProductReducer)
+    const {id} = useParams()
+    
+      
+  useEffect(()=>{
+       dispatch(getSingleProduct(id))
+  },[])
+
+
   return (
     <div className="main-mac">
     <Navbar />

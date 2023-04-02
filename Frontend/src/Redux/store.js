@@ -4,10 +4,14 @@ import { productsReducer } from "./Products/products.reducer";
 import AdminReducer from './Admin/admin.reducer'
 import {CartReducer} from "./Cart/cart.reducer"
 import thunk from "redux-thunk";
+import { singleProductReducer } from "./SingleProduct/Single.reducer";
+
+
 //
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
+  singleProductReducer
   AdminReducer,
   CartReducer,
   

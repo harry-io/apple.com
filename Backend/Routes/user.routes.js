@@ -90,7 +90,7 @@ userRouter.post("/register", async (req, res) => {
   try {
     const emailcheck = await userModel.findOne({ email });
     if (emailcheck) {
-      res.send({ msg: "email already used" });
+      res.status(400).send({ msg: "email already used" });
     } else {
       bcrypt.hash(password, 5, async (err, hash) => {
         const user = new userModel({
@@ -148,7 +148,7 @@ userRouter.post("/login", async (req, res) => {
             token: jwt.sign({ userID: user._id }, process.env.secret_code),
           });
         } else {
-          res.status(400).send("wrong credential");
+          res.status(400).send({"msg":"wrong credential"});
         }
       });
     } else {
