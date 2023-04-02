@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../../Styles/Payment.scss";
 import { Link } from "react-router-dom";
 import { Navbar } from "../../Components/Navbar";
 
 
-const address = JSON.parse(localStorage.getItem("shipping")) || {
-  address1: "",
-  address2: "",
-  city: "",
-  pincode: "",
-  statename: "",
-  country: "",
-};
 
 
 
@@ -25,6 +17,7 @@ function Payment() {
   const [otpshow, setOtp] = useState("none");
   const [hidebutton, setHidebutton] = useState("block");
   const [home, setHome] = useState("none");
+  const [addr,setAddr]=useState({})
   const handleOTP = () => {
     setOtp("grid");
     setHidebutton("none");
@@ -53,6 +46,19 @@ function Payment() {
     setPopup("none");
     setPay("block");
   };
+  useEffect(() => {
+    
+const address = JSON.parse(localStorage.getItem("shipping")) || {
+  address1: "",
+  address2: "",
+  city: "",
+  pincode: "",
+  statename: "",
+  country: "",
+};
+setAddr(address)
+  }, [])
+  
 
   return (
     <div>
@@ -113,12 +119,12 @@ function Payment() {
                         <br />
                         <span>
                           <b>
-                            {address.address1},{address.address2}
+                            {addr.address1},{addr.address2}
                           </b>
-                          <b>{address.city}</b>
-                          <b>{address.pincode}</b>
-                          <b>{address.statename}</b>
-                          <b>{address.country}</b>
+                          <b>{addr.city}</b>
+                          <b>{addr.pincode}</b>
+                          <b>{addr.statename}</b>
+                          <b>{addr.country}</b>
                         </span>
                       </div>
                     </div>
@@ -233,12 +239,12 @@ function Payment() {
                       <br />
                       <span>
                         <b>
-                          {address.address1},{address.address2}
+                          {addr.address1},{addr.address2}
                         </b>
-                        <b>{address.city}</b>
-                        <b>{address.pincode}</b>
-                        <b>{address.statename}</b>
-                        <b>{address.country}</b>
+                        <b>{addr.city}</b>
+                        <b>{addr.pincode}</b>
+                        <b>{addr.statename}</b>
+                        <b>{addr.country}</b>
                       </span>
                     </div>
                   </div>
@@ -285,11 +291,11 @@ function Payment() {
               style={{ display: otpshow }}
             >
               <label>
-                OTP has been sent to your mobile {address.phone},please Enter
+                OTP has been sent to your mobile {addr.phone},please Enter
                 the otp
               </label>
               <input type="number" placeholder="Enter your OTP" required />
-              <input type="submit" value="Submit" />
+              <input className="otpsubmit" type="submit" value="Submit" />
             </form>
             <div style={{ display: home }} className="ordersuccess">
               <div className="ordersuccesspopup">
@@ -299,19 +305,19 @@ function Payment() {
 
                 <div>
                   <div>
-                    <h4> iPhone 14 Pro</h4>
-                    <h4>₹ 189,900</h4>
+                    {/* <h4> iPhone 14 Pro</h4>
+                    <h4>₹ 189,900</h4> */}
                     <h4>
-                      {address.address1},{address.address2}
-                      {address.city}
-                      {address.pincode}
-                      {address.statename}
-                      {address.country}
+                      {addr.address1},{addr.address2}
+                      {addr.city}
+                      {addr.pincode}
+                      {addr.statename}
+                      {addr.country}
                     </h4>
                   </div>
                   <div className="imgbox">
                     <img
-                      src="https://img5.gadgetsnow.com/gd/images/products/additional/large/G390874_View_1/mobiles/smartphones/apple-iphone-14-pro-max-1-tb-deep-purple-6-gb-ram-.jpg"
+                      src="https://i.ibb.co/SnNM4tm/Logo.png"
                       alt=""
                     />
                   </div>
@@ -441,12 +447,12 @@ function Payment() {
               Delivery to: <br />{" "}
               <span>
                 <b>
-                  {address.address1},{address.address2}
+                  {addr.address1},{addr.address2}
                 </b>
-                <b>{address.city}</b>
-                <b>{address.pincode}</b>
-                <b>{address.statename}</b>
-                <b>{address.country}</b>
+                <b>{addr.city}</b>
+                <b>{addr.pincode}</b>
+                <b>{addr.statename}</b>
+                <b>{addr.country}</b>
               </span>
             </h4>
             <Link to="/shipping">Change</Link>
