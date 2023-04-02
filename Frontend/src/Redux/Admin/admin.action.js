@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from './admin.types';
 import { getData } from "../../Utils/LocalStorage/ls";
+import { toast } from 'react-hot-toast';
 
 export const getOrdersData = (dispatch) => {
     dispatch({ type: types.LOADING });
@@ -114,8 +115,16 @@ export const editAdminDetails = (id, changes) => async (dispatch) => {
         .then((res) => {
             dispatch({ type: types.EDITADMINDETAILS, payload: res.data })
         })
-        // .then(() =>
-        //     getAdminProducts(dispatch)
-        // )
+        .then(() =>
+            toast.success("Admin profile updated successfully!", {
+                style: {
+                    borderRadius: "50px",
+                    background: "#989898",
+                    color: "#ffffff",
+                    padding: "1rem 1.5rem",
+                    fontWeight: "600",
+                },
+            })
+        )
         .catch(() => dispatch({ type: types.ERROR }));
 }
