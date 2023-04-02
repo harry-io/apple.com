@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../../Styles/Shipping.scss";
 import { Navbar } from "../../Components/Navbar";
-import {Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import { setData } from "../../Utils/LocalStorage/ls";
 
 function Shipping() {
+  let payment_total=localStorage.getItem("payment_total")
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [address1, setAddress1] = useState("");
@@ -14,7 +15,7 @@ function Shipping() {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const user_data = {
     firstname: firstname,
     lastname: lastname,
@@ -27,9 +28,9 @@ function Shipping() {
     phone: phone,
   };
   const saveData = (e) => {
-    e.preventDefault()
-setData("shipping",user_data)
-    navigate("/payment")
+    e.preventDefault();
+    setData("shipping", user_data);
+    navigate("/payment");
   };
 
   return (
@@ -43,7 +44,7 @@ setData("shipping",user_data)
               <h2>Checkout</h2>
             </div>
             <div>
-              <h3>₹269800.00</h3>
+              <h3>Order Total ₹{payment_total}</h3>
             </div>
           </div>
         </div>
@@ -125,7 +126,6 @@ setData("shipping",user_data)
             </div>
             <div className="shipp_button">
               <input type="submit" value="Continue to Payment" />
-
             </div>
           </form>
         </div>

@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import SimpleSlider from "./SimpleSlider";
 import Loader from "../../../Components/Loader/Loader";
 import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType";
+import { addCart } from "../../../Redux/Cart/cart.action";
 
 
 
@@ -25,6 +26,10 @@ function SinglePage() {
 
      
    const {title ,category,dtlimage,price} = product
+
+   const handleaddcart = () => {
+dispatch(addCart("https://back-ened-bolt.onrender.com/cartProducts/add",product))
+   };
    
 
   return (
@@ -51,7 +56,7 @@ function SinglePage() {
                   </p>
                 </div>
                 <div>
-                  <button>Add To Bag</button>
+                  <button onClick={handleaddcart}>Add To Bag</button>
                 </div>
               </div>
               <div className="mac-specs">

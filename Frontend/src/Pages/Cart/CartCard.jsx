@@ -1,29 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Styles/Cart.scss";
 import { useDispatch } from "react-redux";
-import { deleteCart } from "../../Redux/Cart/cart.action";
+import { IncCart, deleteCart } from "../../Redux/Cart/cart.action";
 
-const dplitPrice = (str) => {
-  let newStr = "";
-  for (let i = 1; i < str.length; i++) {
-    newStr += str[i];
-  }
-  return newStr;
+
+export const calcprice = (mrp) => {
+  const dplitPrice = (str) => {
+    let newStr = "";
+    for (let i = 1; i < str.length; i++) {
+      newStr += str[i];
+    }
+    return newStr;
+  };
+  let fullprice = mrp.split(" ");
+  let price = fullprice[fullprice.length - 1];
+  price = +dplitPrice(price);
+
+ 
+  return price;
 };
 
 function CartCard({ item }) {
-    const dispatch=useDispatch()
-  let fullprice = item.price.split(" ");
-  let price = fullprice[fullprice.length - 1];
-  price = +dplitPrice(price);
-  // console.log(typeof(price))
-  // price=price.splice(0)
-  console.log(price);
+  const dispatch = useDispatch();
 
-  const removeitem=(id)=>{
-    dispatch(deleteCart(`https://back-ened-bolt.onrender.com/cartProducts/${id}`))
-    
-  }
+  const [add, setAdd] = useState(1);
+
+  const removeitem = (id) => {
+    dispatch(
+      deleteCart(`https://back-ened-bolt.onrender.com/cartProducts/${id}`)
+    );
+  };
+  //   let body1={
+  //     quantity:item.quantity+1
+  //   }
+  //   let body2={
+  //     quantity:item.quantity-1
+  //   }
+  //   const handleAdd=(id)=>{
+  // dispatch(IncCart(`https://back-ened-bolt.onrender.com/cartProducts/${id}`,body1))
+  //   }
+  //   const handleSub=(id)=>{
+  //     dispatch(IncCart(`https://back-ened-bolt.onrender.com/cartProducts/${id}`,body2))
+  //       }
+
+  const handleAdd = (id) => {
+    setAdd(add + 1);
+    localStorage.setItem("quantity_bolt", add);
+  };
+  const handleSub = (id) => {
+    setAdd(add - 1);
+    localStorage.setItem("quantity_bolt", add);
+  };
 
   return (
     <div className="product_data_main">
@@ -42,27 +69,25 @@ function CartCard({ item }) {
         </div>
         <div className="right_most">
           <div className="right2">
-            <div>
-              <select name="" id="">
-                <option value="2">1</option>
-                <option value="2">2</option>
-                <option value="2">3</option>
-                <option value="2">4</option>
-                <option value="2">5</option>
-                <option value="2">6</option>
-                <option value="2">7</option>
-                <option value="2">8</option>
-              </select>
+            <div className="quantity">
+              <button
+                disabled={add == 1}
+                onClick={(item) => handleSub(item._id)}
+              >
+                -
+              </button>
+              <button>{add}</button>
+              <button onClick={(item) => handleAdd(item._id)}>+</button>
             </div>
             <div>
-              <p>{price}</p>
+              <p>₹{calcprice(item.price)}</p>
             </div>
           </div>
 
           <div className="right3">
             <div>
               <p>{item.price}</p>
-              <b onClick={()=>removeitem(item._id)}>Remove</b>
+              <button onClick={() => removeitem(item._id)}>Remove</button>
             </div>
           </div>
         </div>

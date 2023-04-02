@@ -72,7 +72,7 @@
         border-radius: 20px;
         padding: 0 20px;
         text-align: left;
-        background: white;
+        background :black;
         width: 100%;
         cursor: pointer;
         &:focus {
@@ -83,7 +83,7 @@
         border-radius: 20px;
         padding: 0 20px;
         text-align: left;
-        background: white;
+        background:black;
         width: 100%;
         cursor: pointer;
 
@@ -107,7 +107,7 @@
         border-radius: 20px;
         padding: 0 20px;
         text-align: left;
-        background: white;
+        background:black ;
         width: 100%;
         cursor: pointer;
         &:focus {
@@ -375,9 +375,7 @@
         }
         .otpset {
           width: 100%;
-          input{
-
-          }
+          
         }
         .imgbox {
           display: flex;

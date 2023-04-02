@@ -39,7 +39,7 @@ export const NavbarBag = () => {
           <Link>
             <i className="fa fa-truck"></i> Orders
           </Link>
-          <Link>
+          <Link to="/cart">
             <i className="fa fa-bookmark-o"></i> Your Saves
           </Link>
           <Link>
