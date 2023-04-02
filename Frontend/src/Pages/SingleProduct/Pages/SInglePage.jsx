@@ -25,7 +25,7 @@ function SinglePage() {
 
      
    const {title ,category,dtlimage,price} = product
-    console.log(dtlimage)
+   
 
   return (
     <div className="main-mac">
