@@ -10,6 +10,7 @@ import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType
 
 
 
+
 function SinglePage() {
 
   const {id} = useParams()
@@ -21,7 +22,7 @@ function SinglePage() {
   const {isLoading, isError, product} = useSelector((store) =>store.singleProductReducer)
   const dispatch = useDispatch()
   
-   console.log(product)
+
      
    const {title ,category,dtlimage,price} = product
     console.log(dtlimage)

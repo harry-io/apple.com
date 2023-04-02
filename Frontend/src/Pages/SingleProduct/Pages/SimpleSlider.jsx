@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 
-
 function SampleNextArrow(props) {
   const { onClick } = props;
   return (
