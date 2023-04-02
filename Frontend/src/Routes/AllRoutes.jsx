@@ -11,7 +11,7 @@ import Mac from "../Pages/Mac/Mac";
 import Signup from "../Pages/Signup/Signup";
 import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
 import Store from "../Pages/Store/Store";
-
+import { ChakraProvider } from "@chakra-ui/react";
 import Dashboard from "../Components/Admin/Dashboard";
 
 import Watch from "../Pages/Watch/Watch";
@@ -87,7 +87,11 @@ const AllRoutes = () => {
       <Route path="/watch/:id" element={<SinglePage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/admin" element={
+        <ChakraProvider>
+          <Admin />
+        </ChakraProvider>
+      } />
       <Route path="/admin/dashboard" element={<Dashboard />} />
     </Routes>
   );
