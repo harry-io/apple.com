@@ -80,6 +80,7 @@ export const loginAction = (body, navigate, location) => (dispatch) => {
   axios
     .post(`https://back-ened-bolt.onrender.com/users/login`, body)
     .then((res) => {
+      console.log(res.data);
       dispatch(loginSuccess(res.data.token));
       setData("token_bolt", res.data.token);
       toast.success("Logged in successfully !", {

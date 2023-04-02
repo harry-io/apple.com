@@ -33,6 +33,7 @@
     "sass": "^1.60.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
+    "vercel": "^28.18.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
