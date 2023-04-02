@@ -21,6 +21,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [age, setAge] = useState("");
+  const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   //
@@ -35,6 +36,7 @@ const Signup = () => {
       password,
       country,
       age: +age,
+      role,
     };
     //
     //
@@ -77,7 +79,9 @@ const Signup = () => {
         setAge("");
         setPassword("");
         setCountry("");
+        setRole("");
         //
+        console.log(body);
         dispatch(signupAction(body, navigate));
       }
     }
@@ -118,10 +122,15 @@ const Signup = () => {
             onChange={(e) => setAge(e.target.value)}
             required
           />
-          <Label className="input-label">Email</Label>
+          <Label className="input-label">Age</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
-        <Country country={country} setCountry={setCountry} />
+        <Country country={country} setCountry={setCountry} />\
+        <Role value={role} onChange={(e) => setRole(e.target.value)}>
+          <option value="">Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </Role>
         <InputContainer>
           <Input
             type={show ? "text" : "password"}
@@ -151,7 +160,6 @@ const Signup = () => {
           <Label className="input-label">Confirm Password</Label>
           <Span className="input-highlight"></Span>
         </InputContainer>
-
         <Logo
           onClick={() =>
             toast.success("hsvhcvh", {
@@ -280,4 +288,16 @@ const ShowHide = styled.div`
   cursor: pointer;
   font-size: 1.3rem;
   color: #007bff;
+`;
+const Role = styled.select`
+  height: 50px;
+  font-size: 16px;
+  padding-left: 0.8rem;
+  border: 1px solid #96949494;
+  color: grey;
+  border-radius: 5px;
+  &:focus {
+    outline: 2px solid #007bff;
+  }
+  margin-top: -2.6rem;
 `;

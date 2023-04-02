@@ -36,6 +36,8 @@
     .product_data_main {
       width: 80%;
       margin: auto;
+      border-bottom: 1px solid grey;
+      padding: 10px;
       .product_data {
         display: flex;
         justify-content: space-evenly;
@@ -60,6 +62,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            .quantity{
+              display: flex;
+              gap: 10px;
+              button{
+                background-color: black;
+                color: white;
+                font-size: 20px;
+                width: 40px;
+              }
+            }
 
             p {
               font-size: 18px;
@@ -69,6 +81,12 @@
         }
         .right3 {
           text-align: right;
+          button{
+            cursor: pointer;
+            background-color:linear-gradient(-45deg, blue, skyblue) !important;
+            width: 20%;
+            padding: 10px;
+          }
           p {
             font-size: 18px;
           }

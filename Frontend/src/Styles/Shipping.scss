@@ -43,7 +43,7 @@
       margin-top: 10px;
       display: block;
       text-align: left;
-      button {
+      input {
         // background-image: linear-gradient(to right, #4e4e4e 0%, #000000 51%, #474343 100%);
         background-image: linear-gradient(-45deg, blue, skyblue);
 
@@ -61,7 +61,7 @@
         font-weight: 600;
         width: 100%;
       }
-      button:hover {
+      input:hover {
         background-position: right center;
         color: #fff;
         text-decoration: none;

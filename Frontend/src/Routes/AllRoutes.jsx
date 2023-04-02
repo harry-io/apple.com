@@ -9,21 +9,22 @@ import Iphone from "../Pages/Iphone/Iphone";
 import Login from "../Pages/Login/Login";
 import Mac from "../Pages/Mac/Mac";
 import Signup from "../Pages/Signup/Signup";
-import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
 import Store from "../Pages/Store/Store";
 import { ChakraProvider } from "@chakra-ui/react";
 import Dashboard from "../Components/Admin/Dashboard";
-
 import Watch from "../Pages/Watch/Watch";
-
 import PrivateRoute from "./PrivateRoute";
-
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
 import SearchPage from "../Pages/SearchPage/SearchPage";
 import AdminProducts from "../Components/Admin/AdminProducts";
 import { Analytics } from "../Components/Admin/Analytics";
 import Settings from "../Components/Admin/Settings";
+import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
+import Cart from "../Pages/Cart/Cart";
+
+
+
 
 const AllRoutes = () => {
   return (
@@ -114,7 +115,7 @@ const AllRoutes = () => {
         path="store/products/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -122,7 +123,7 @@ const AllRoutes = () => {
         path="/iphone/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -130,7 +131,7 @@ const AllRoutes = () => {
         path="/ipad/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -138,7 +139,7 @@ const AllRoutes = () => {
         path="/mac/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+            <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -146,7 +147,7 @@ const AllRoutes = () => {
         path="/watch/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+            <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -179,6 +180,7 @@ const AllRoutes = () => {
       } />
       <Route path="/shipping" element={<Shipping />} />
       <Route path="/payment" element={<Payment />} />
+      <Route path="/cart" element={<Cart/>} />
     </Routes>
   );
 };

@@ -1,35 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../../../Components/Navbar";
-import SimpleSlider from "../carousel/SimpleSlider";
 import "../Style/Mac.css";
 import { Footer } from "../../../Components/Footer";
+import {  useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import SimpleSlider from "./SimpleSlider";
+import Loader from "../../../Components/Loader/Loader";
+import { getSingleProduct } from "../../../Redux/SingleProduct/Single.actionType";
+import { addCart } from "../../../Redux/Cart/cart.action";
+
+
+
 
 function SinglePage() {
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    dispatch(getSingleProduct(id))
+  },[])
+
+  const {isLoading, isError, product} = useSelector((store) =>store.singleProductReducer)
+  const dispatch = useDispatch()
+  
+
+     
+   const {title ,category,dtlimage,price} = product
+
+   const handleaddcart = () => {
+dispatch(addCart("https://back-ened-bolt.onrender.com/cartProducts/add",product))
+   };
+   
+
   return (
     <div className="main-mac">
     <Navbar />
     <div>
       <div>
-        <h1>Choose your new MacBook Air.</h1>
+        <h1>Choose your new {category&&category}.</h1>
       </div>
       <hr></hr>
       <div className="mac-parent-container">
         <div>
           <div className="container-Mac">
             <div>
-              <SimpleSlider />
+             {isLoading && <Loader/>}
+              {dtlimage&&<SimpleSlider dtlimage={dtlimage}/>}
             </div>
             <div>
               <div className="desc-mac">
                 <div>
-                  <h2>MacBook Air with M1 chip</h2>
+                  <h3>{title&&title}</h3>
                   <p>
-                    From ₹17386.00/mo.Per Month with EMI,Footnote◊◊ or
-                    ₹99900.00Footnote‡
+                    {price&&price}
                   </p>
                 </div>
                 <div>
-                  <button>Buy</button>
+                  <button onClick={handleaddcart}>Add To Bag</button>
                 </div>
               </div>
               <div className="mac-specs">
@@ -91,15 +118,16 @@ function SinglePage() {
       </div>
       <div className="mac-care">
             <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/applecare-hero-bb-201706?wid=152&hei=152&fmt=jpeg&qlt=95&.v=1629955311000"/>
-            <h1>AppleCare+ for Mac</h1>
+            <h1>AppleCare+ for {category}</h1>
             <h4>
             Every Mac comes with a one-year limited warranty(opens in a new window) and up to 90 days of complimentary technical support(opens in a new window). AppleCare+ for Mac extends your coverage from your AppleCare+ purchase date and adds unlimited incidents of accidental damage protection, each subject to a service fee of $99 for screen damage or external enclosure damage, or $299 for other accidental damage, plus applicable tax. In addition, you’ll get 24/7 priority access to Apple experts via chat or phone. For complete details, see the terms(opens in a new window). 
             </h4>
         </div>
     </div>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
-  );
+  )
 }
+
 
 export default SinglePage;

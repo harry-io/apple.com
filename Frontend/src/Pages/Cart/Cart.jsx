@@ -1,90 +1,74 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../Styles/Cart.scss";
-import{Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Navbar } from "../../Components/Navbar";
+import CartCard, { calcprice } from "./CartCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "../../Redux/Cart/cart.action";
+import Loader from "../../Components/Loader/Loader";
 
 function Cart() {
+let pricetotal=0
+
+  const dispatch = useDispatch();
+  const { isLoading, isError, cart } = useSelector((store) => {
+    return store.CartReducer;
+  });
+  console.log(cart)
+
+  useEffect(() => {
+    dispatch(getCart("https://back-ened-bolt.onrender.com/cartProducts"));
+    
+
+  }, []);
+  for (let i = 0; i < cart.length; i++) {
+      
+    pricetotal+=calcprice(cart[i].price)
+  }
+  localStorage.setItem("payment_total",pricetotal)
+
+ console.log(pricetotal)
   return (
-   <div>
-    <Navbar/>
-     <div className="cart" id="cart">
-      <div className="cart_main">
-        <div className="heading_cart">
-          <h1>Your bag total is ₹175800.00 or ₹29300.00/mo.per month</h1>
-          <button className="cartbutton">CheckOut</button>
-        </div>
-        <div className="product_data_main">
-          <div className="product_data">
-            <div className="left_image">
-              <img
-                src="https://rukminim1.flixcart.com/image/416/416/xif0q/smartwatch/e/4/c/-original-imaghxg9hnk2bztm.jpeg?q=70"
-                alt=""
-              />
+    <div>
+      <Navbar />
+      {isLoading && <Loader />}
+      <div className="cart" id="cart">
+        <div className="cart_main">
+          <div className="heading_cart">
+            <h1>Your bag total is ₹{pricetotal} or ₹{pricetotal*0.15} per month</h1>
+            <button className="cartbutton">CheckOut</button>
+          </div>
+          {cart.length > 0 &&
+            cart.map((item) => (
+              // console.log(item)
+              <CartCard item={item} />
+            ))}
+          <div className="billing_section">
+            <div className="subtotal">
+              <p>Subtotal</p>
+              <p>₹{pricetotal}</p>
             </div>
-
-            <div className="right1">
-              <div>
-                <h3>
-                  {" "}
-                  Starlight Aluminium Case with Sport Band - Starlight, 2
-                </h3>
-              </div>
-              <div>
-                <p>Pay 15% pa for 6 months</p>
-              </div>
+            <div className="shippingfree">
+              <p>Shipping</p>
+              <p>FREE</p>
             </div>
-            <div className="right_most">
-              <div className="right2">
-                <div>
-                  <select name="" id="">
-                    <option value="2">1</option>
-                    <option value="2">2</option>
-                    <option value="2">3</option>
-                    <option value="2">4</option>
-                    <option value="2">5</option>
-                    <option value="2">6</option>
-                    <option value="2">7</option>
-                    <option value="2">8</option>
-                  </select>
-                </div>
-                <div><p>₹45900.00</p></div>
-              </div>
-
-              <div className="right3">
-                <div>
-                  <p>Get up to ₹1944.00 savings with eligible card(s)</p>
-                  <p>₹7650.00/mo</p>
-                  <b>Remove</b>
-                </div>
-              </div>
+            <div className="amounttotal">
+              <h3>Total</h3>
+              <p>₹{pricetotal}</p>
             </div>
-          </div>
-        </div>
-        <div className="billing_section">
-          <div className="subtotal">
-            <p>Subtotal</p>
-            <p>10000000</p>
-          </div>
-          <div className="shippingfree">
-            <p>Shipping</p>
-            <p>FREE</p>
-          </div>
-          <div className="amounttotal">
-            <h3>Total</h3>
-            <p>12000000</p>
-          </div>
-          <div className="emiamount">
-            <h4>Monthly payment</h4>
-            <p>₹29300.00/mo.^per month with EMI</p>
-          </div>
-          <div className="checkout_page_button">
-      <Link to="/shipping">
-      <button >BUY NOW</button></Link>
+            <div className="emiamount">
+              <h4>Monthly payment</h4>
+              <p>₹{pricetotal*0.15} per month with EMI</p>
+            </div>
+            <div className="checkout_page_button">
+              <Link to="/shipping">
+                <button >BUY NOW</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
-   </div>
   );
 }
 

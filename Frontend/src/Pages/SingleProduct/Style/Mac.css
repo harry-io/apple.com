@@ -29,8 +29,7 @@
 
 .container-Mac{
    /* border: 1px solid #0622d7; */
-  
-   width: 100%;
+   width: auto;
    height: 100%;
    margin: auto;
    display: flex;
@@ -46,7 +45,7 @@
  
  .container-Mac >div:nth-child(2){
     /* border: 1px solid #b40909; */
-    height: 100%;
+    height: auto;
     width: 55%;
     line-height: 95%;
     border-radius: 10px;
@@ -56,7 +55,7 @@
     /* border: 1px solid #081fd1; */
     height:20%;
     width: 100%;
-    text-align: left;
+    margin: auto;
     border-radius: 10px;
  }
 
@@ -75,10 +74,26 @@
  }
 
  button{
-    background: #0071e3;
-    padding: 8px 18px 8px 18px;
-    border-radius: 18px;
+        background-image: linear-gradient(-45deg, blue, skyblue);
+        width: 80%;
+        padding: 18px 10px;
+        text-align: center;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 15px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
  }
+
+ button:hover{
+       background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+}
 
  p{
     font-size: 11px;
@@ -115,7 +130,7 @@
  }
 
 
- @media (max-width: 800px) {
+ @media (max-width: 1000px) {
 
     .mac-parent-container{
         /* border: 1px solid #09b40c; */
@@ -172,6 +187,15 @@
         border-radius: 10px;
      }
 
+     .container-Mac >div:nth-child(2)>div:nth-child(1){
+      /* border: 1px solid #081fd1; */
+      height:20%;
+      width: 80%;
+      margin: auto;
+      display: block;
+      border-radius: 10px;
+   }
+
      .dilevary-desc{
         /* border: 1px solid #e31818; */
         height: 15%;
@@ -185,4 +209,22 @@
      .dilevary-desc>div{
        width: 100%;
      }
+    
+     button{
+      background-image: linear-gradient(-45deg, blue, skyblue);
+      width: 80%;
+      padding: 18px 10px;
+      text-align: center;
+      transition: 0.5s;
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0 0 20px #eee;
+      border-radius: 15px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+}
+   
+   
   }
+
