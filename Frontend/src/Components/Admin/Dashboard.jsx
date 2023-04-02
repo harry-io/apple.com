@@ -12,6 +12,9 @@ import { BsPerson } from 'react-icons/bs';
 import { BiDollar } from 'react-icons/bi';
 import { FiShoppingBag } from 'react-icons/fi'
 import Orders from './Orders';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getOrdersData } from '../../Redux/Admin/admin.action';
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -44,6 +47,13 @@ function StatsCard(props) {
 }
 
 export default function Dashboard() {
+    const dispatch = useDispatch();
+    const { orders } = useSelector(store => store.AdminReducer);
+    // console.log(orders, 'orders');
+    useEffect(() => {
+        dispatch(getOrdersData());
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }} id='dashboard'>
             <chakra.h1
@@ -77,7 +87,14 @@ export default function Dashboard() {
                 fontWeight={'bold'}>
                 Recent Orders
             </chakra.h1>
-            <Orders />
+
+            {/* {
+                orders.map((e, i) => (
+                    <Orders key={i+1} {...e} />
+                ))
+            } */}
+
+            <Orders orders={orders} />
         </Box>
     );
 }

@@ -53,25 +53,19 @@ header > .icons {
 }
 
 header > .icons > a:first-child {
-  /* color: black; */
-  height: 40px;
-  width: 40px;
-  /* padding: 0 10px; */
-  font-size: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
-    inset -5px -5px 5px rgba(0, 0, 0, 0.3);
-  /* background: white; */
-  color: white;
+  justify-content: flex-start;
+  /* border: 1px solid white; */
 }
 header > .icons > a:last-child {
   /* background-color: red; */
   /* height: 20px; */
   display: flex;
   align-items: center;
+}
+header > .icons > a:first-child > img {
+  width: 25px;
 }
 header > .icons > a {
   text-decoration: none;
@@ -82,6 +76,7 @@ header > .icons > a {
 header > .icons > a > svg {
   fill: white;
 }
+/*  */
 .headerDropDown {
   position: fixed;
   top: 50px;
@@ -185,6 +180,51 @@ header > .icons > a > svg {
   font-size: 12px;
   margin: 4px;
 }
+
+.headerDropDown > .searchBx {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  width: 70%;
+  /* border: 1px solid white; */
+}
+.headerDropDown > .searchBx > form {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
+}
+.headerDropDown > .searchBx > form input {
+  padding: 10px 20px;
+  width: 100%;
+  background: transparent;
+  font-size: 25px;
+  outline: none;
+  color: white;
+  border: none;
+}
+.headerDropDown > .searchBx > form input::placeholder {
+  font-weight: 700;
+  color: rgb(197, 197, 197);
+}
+.headerDropDown > .searchBx > .searchOptions {
+  text-align: start;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+  /* border: 1px solid white; */
+}
+.headerDropDown > .searchBx > .searchOptions > a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+}
+
 /*  */
 @media only screen and (max-width: 940px) {
   /*Big smartphones [426px -> 600px]*/
@@ -227,9 +267,11 @@ header > .icons > a > svg {
   }
   header.active > .Navham::before {
     transform: rotate(-45deg) translateY(-5px) translate(5px);
+    border-color: red;
   }
   header.active > .Navham::after {
     transform: rotate(45deg) translateY(5px) translate(5px);
+    border-color: red;
   }
   /*  */
 
@@ -251,6 +293,25 @@ header > .icons > a > svg {
 
   .headerDropDown.active > .navList {
     width: 80%;
+  }
+
+  /*  */
+
+  .headerDropDown > .searchBx {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+    width: 90%;
+    /* border: 1px solid white; */
+  }
+  .headerDropDown > .searchBx > form input {
+    font-size: 20px;
+    padding: 10px 5px;
+    /* border: 1px solid white; */
+  }
+  .headerDropDown > .searchBx > form input::placeholder {
+    font-size: 20px;
   }
 }
 

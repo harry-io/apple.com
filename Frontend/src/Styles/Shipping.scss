@@ -1,0 +1,125 @@
+#shipping.shipping {
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  .shipheaders {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid #e1d7d7;
+    align-items: center;
+  }
+  .actualform {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    input {
+      //   width: 30%;
+      padding: 15px;
+      margin: 3px;
+      border-radius: 8px;
+      border: 1px solid rgb(223, 219, 219);
+      &:focus {
+        border: 3px solid #3797f7;
+      }
+    }
+    .addressinfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+    }
+    .contactinfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+    }
+    .shipp_button {
+      width: 40%;
+      // margin: auto;
+      margin-top: 10px;
+      display: block;
+      text-align: left;
+      button {
+        // background-image: linear-gradient(to right, #4e4e4e 0%, #000000 51%, #474343 100%);
+        background-image: linear-gradient(-45deg, blue, skyblue);
+
+        /* margin: 10px; */
+        padding: 20px;
+        //   text-align: center;
+        /* text-transform: uppercase; */
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 8px;
+        /* display: block; */
+        border: none;
+        font-weight: 600;
+        width: 100%;
+      }
+      button:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  #shipping {
+    .actualform {
+      .data {
+        .addressinfo {
+          width: 100%;
+        }
+        .contactinfo {
+          width: 100%;
+        }
+        .shipp_button {
+          width: 100%;
+          button {
+            width: 100%;
+          }
+        }
+      }
+
+      input {
+        width: 100%;
+      }
+      .sam {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  #shipping {
+    .actualform {
+      .data {
+        .addressinfo {
+          width: 100%;
+        }
+        .contactinfo {
+          width: 100%;
+        }
+        .shipp_button {
+          width: 100%;
+          button {
+            width: 100%;
+          }
+        }
+      }
+
+      .sam {
+        font-size: 18px;
+      }
+    }
+  }
+}

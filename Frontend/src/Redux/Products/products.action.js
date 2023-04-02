@@ -29,11 +29,12 @@ export const getProducts = (url) => (dispatch) => {
   axios
     .get(url, {
       headers: {
-        Authorization: getData("token_bolt"),
+        Authorization: `Bearer ${getData("token_bolt")}`,
       },
     })
     .then((res) => {
       dispatch(getProductsSuccess(res.data));
+      console.log(res.data)
     })
     .catch(() => dispatch(productsFailure()));
 };
