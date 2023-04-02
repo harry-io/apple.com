@@ -7,7 +7,7 @@ import { GET_SINGLE_PRODUCT_FALIURE, GET_SINGLE_PRODUCT_REQUEST, GET_SINGLE_PROD
 const initialState = {
     isLoading:false,
     isError:false,
-    product:[]
+    product:{}
 }
 
 

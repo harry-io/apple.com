@@ -9,7 +9,7 @@ import Iphone from "../Pages/Iphone/Iphone";
 import Login from "../Pages/Login/Login";
 import Mac from "../Pages/Mac/Mac";
 import Signup from "../Pages/Signup/Signup";
-import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
+
 import Store from "../Pages/Store/Store";
 import { ChakraProvider } from "@chakra-ui/react";
 import Dashboard from "../Components/Admin/Dashboard";
@@ -21,6 +21,7 @@ import PrivateRoute from "./PrivateRoute";
 import Shipping from "../Pages/Address/Shipping";
 import Payment from "../Pages/Payment/Payment";
 import SearchPage from "../Pages/SearchPage/SearchPage";
+import SinglePage from "../Pages/SingleProduct/Pages/SInglePage";
 
 const AllRoutes = () => {
   return (
@@ -111,7 +112,7 @@ const AllRoutes = () => {
         path="store/products/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -119,7 +120,7 @@ const AllRoutes = () => {
         path="/iphone/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -127,7 +128,7 @@ const AllRoutes = () => {
         path="/ipad/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+           <SinglePage/>
           </PrivateRoute>
         }
       />
@@ -135,7 +136,7 @@ const AllRoutes = () => {
         path="/mac/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+            
           </PrivateRoute>
         }
       />
@@ -143,7 +144,7 @@ const AllRoutes = () => {
         path="/watch/:id"
         element={
           <PrivateRoute>
-            <SinglePage />
+            
           </PrivateRoute>
         }
       />
