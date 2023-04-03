@@ -46,7 +46,7 @@ Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets, perso
 1. Clone this repo to your local machine using
 
 ```
-git clone https://github.com/Varun8177/roasted-geese-6392.git
+git clone https://github.com/harry-io/teal-fuel-7913
 ```
 
 2. Go to the folder where you cloned this repo and install dependencies using
