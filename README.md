@@ -46,7 +46,7 @@ Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets, perso
 1. Clone this repo to your local machine using
 
 ```
-git clone https://github.com/harry-io/teal-fuel-7913
+git clone https://github.com/Varun8177/roasted-geese-6392.git
 ```
 
 2. Go to the folder where you cloned this repo and install dependencies using
@@ -64,21 +64,28 @@ npm run start
 # Screenshots
 
 ## Home Page
-![image]([https://user-images.githubusercontent.com/112754116/222733399-cc8c0c6d-aae6-4e9f-ad45-e4f42ddd1ef5.png](https://i.imgur.com/jjm7cC8.png))
+[![Screenshot-98.png](https://i.postimg.cc/d01QksYb/Screenshot-98.png)](https://postimg.cc/K16hCy4f)
 
 ## Login page
 [![Screenshot-97.png](https://i.postimg.cc/SyG0MF1s/Screenshot-97.png)](https://i.postimg.cc/SyG0MF1s)
 
 ## Signup page
+[![Screenshot-99.png](https://i.postimg.cc/MGVwjvLr/Screenshot-99.png)](https://postimg.cc/8Fp92PNh)
 
 ## Products page
+[![Screenshot-100.png](https://i.postimg.cc/bwMbwBX9/Screenshot-100.png)](https://postimg.cc/753bBXZ5)
 
 ## Single Product Page
+[![Screenshot-101.png](https://i.postimg.cc/k5QxYvZN/Screenshot-101.png)](https://postimg.cc/WD4Fhgst)
 
 ## Cart Page
+[![Screenshot-102.png](https://i.postimg.cc/fbghFpPm/Screenshot-102.png)](https://postimg.cc/8FW3fKNz)
 
 ## Search page
+[![Screenshot-103.png](https://i.postimg.cc/P5znMPhL/Screenshot-103.png)](https://postimg.cc/875Ypk7D)
 
 ## Payment page
+[![Screenshot-104.png](https://i.postimg.cc/1RBgvccS/Screenshot-104.png)](https://postimg.cc/bdGNJnBV)
 
 ## Admin Page
+[![Screenshot-105.png](https://i.postimg.cc/3rg3JKbx/Screenshot-105.png)](https://postimg.cc/6T5kMNXk)
