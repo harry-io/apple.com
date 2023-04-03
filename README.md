@@ -11,11 +11,11 @@ Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets, perso
 
 # Team Members
 
-- Harikesh Kumar
-- Shivendra Singh
-- Abu Osama
-- Arun Kumar
-- Meenakshi Arora
+- [@Harikesh Kumar](https://github.com/harry-io)
+- [@Shivendra Singh](https://github.com/Shivendra-Singh044)
+- [@Abu Osama](https://github.com/Abu1Osama)
+- [@Arun Kumar](https://github.com/Arun-kumar-fw20-0202)
+- [@Meenakshi Arora](https://github.com/meenakshiar)
 
 # Technology Stack Used 💻
 
