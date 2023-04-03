@@ -70,7 +70,7 @@ npm run start
 [![Screenshot-97.png](https://i.postimg.cc/SyG0MF1s/Screenshot-97.png)](https://i.postimg.cc/SyG0MF1s)
 
 ## Signup page
-[![Screenshot-99.png](https://i.postimg.cc/MGVwjvLr/Screenshot-99.png)](https://postimg.cc/8Fp92PNh)
+[![Screenshot-106.png](https://i.postimg.cc/L6c7qfYd/Screenshot-106.png)](https://postimg.cc/3dZ9VkF9)
 
 ## Products page
 [![Screenshot-100.png](https://i.postimg.cc/bwMbwBX9/Screenshot-100.png)](https://postimg.cc/753bBXZ5)
