@@ -64,10 +64,10 @@ npm run start
 # Screenshots
 
 ## Home Page
-
-[![Screenshot-97.png](https://i.postimg.cc/SyG0MF1s/Screenshot-97.png)](https://i.postimg.cc/SyG0MF1s)
+![image]([https://user-images.githubusercontent.com/112754116/222733399-cc8c0c6d-aae6-4e9f-ad45-e4f42ddd1ef5.png](https://i.imgur.com/jjm7cC8.png))
 
 ## Login page
+[![Screenshot-97.png](https://i.postimg.cc/SyG0MF1s/Screenshot-97.png)](https://i.postimg.cc/SyG0MF1s)
 
 ## Signup page
 
